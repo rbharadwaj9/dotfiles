@@ -1,7 +1,8 @@
 #!/bin/bash
 
-for dotfile in .[A-za-z]*; do
+for dotfile in .[A-Za-z]*;
+do
     echo "Creating symlink for dotfile: $dotfile"
-    ln -fs $(pwd)/$dotfile ~/$(basename $dotfile)
+    ln -s $(pwd)/$dotfile ~/$(basename $dotfile)
 done
-echo "DONE"
+echo "Symlink creation successful!"

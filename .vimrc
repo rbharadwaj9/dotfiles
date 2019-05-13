@@ -5,6 +5,9 @@ call plug#begin()
 " INSERT ALL PLUGS
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
 
 " Initialize plugin system
 call plug#end()
@@ -175,8 +178,14 @@ if has("cscope")
 
 endif
 
+" Update linting when exiting insert mode
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
 
-" Other stuff personalized settings
+let g:ale_linter = {'python':['eslint','flake8','autopep8']}
+let g:ale_fixers = {'python':['eslint','autopep8','prettier']}
+let g:ale_completion_enabled = 1
+"Other stuff personalized settings
 set number
 syntax enable 
 colo molokai
@@ -188,5 +197,7 @@ set smarttab
 set autoindent
 set cursorline 
 set laststatus=2
+set incsearch
+
 
 let g:airline#extensions#branch#enabled=1
