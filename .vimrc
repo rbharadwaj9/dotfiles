@@ -8,7 +8,6 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'maralla/completor.vim'
-Plug 'nickaroot/vim-xcode-dark-theme'
 
 " Initialize plugin system
 call plug#end()
