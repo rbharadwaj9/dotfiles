@@ -17,16 +17,16 @@ call plug#end()
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
-let g:ale_linter = {'python':['eslint', 'flake8', 'autopep8']}
-let g:ale_fixers = {'python':['autopep8','prettier']}
-let g:ale_completion_enabled = 1
+let g:ale_linter = {'python':['flake8', 'autopep8']}
+let g:ale_fixers = {'python':['autopep8', 'prettier']}
+"let g:ale_completion_enabled = 1
 
 " Airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
 
 
-"Other stuff personalized settings
+" Other stuff personalized settings
 set number
 syntax enable 
 colorscheme molokai 
@@ -39,4 +39,7 @@ set autoindent
 set cursorline 
 set laststatus=2
 set incsearch
+
+
+" Keybindings
 
