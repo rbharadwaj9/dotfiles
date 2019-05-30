@@ -17,8 +17,8 @@ call plug#end()
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
-let g:ale_linter = {'python':['flake8', 'autopep8']}
-let g:ale_fixers = {'python':['autopep8', 'prettier']}
+" let g:ale_linter = {'python':['flake8', 'autopep8']}
+" let g:ale_fixers = {'python':['autopep8', 'prettier']}
 "let g:ale_completion_enabled = 1
 
 " Airline Settings
@@ -39,7 +39,15 @@ set autoindent
 set cursorline 
 set laststatus=2
 set incsearch
+set noshowmode
+set title
+
 
 
 " Keybindings
+nnoremap <Space> <Nop>
+let mapleader = " "
 
+nmap <silent> <leader>aj :ALENextWrap<cr>
+nmap <silent> <leader>ak :ALEPreviousWrap<cr>
+nmap <silent> <leader>aa :ALEFix<cr>
