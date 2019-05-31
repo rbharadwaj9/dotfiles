@@ -8,6 +8,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'maralla/completor.vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Initialize plugin system
 call plug#end()
@@ -17,8 +18,8 @@ call plug#end()
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
-" let g:ale_linter = {'python':['flake8', 'autopep8']}
-" let g:ale_fixers = {'python':['autopep8', 'prettier']}
+let g:ale_linter = {'python':['flake8', 'autopep8']}
+let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort']}
 "let g:ale_completion_enabled = 1
 
 " Airline Settings
