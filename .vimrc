@@ -9,6 +9,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'maralla/completor.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Initialize plugin system
 call plug#end()
@@ -42,7 +43,6 @@ set laststatus=2
 set incsearch
 set noshowmode
 set title
-
 
 
 " Keybindings
