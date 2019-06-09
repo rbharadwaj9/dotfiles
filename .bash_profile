@@ -1,6 +1,22 @@
 # Aliases
 alias coursework="cd ~/Documents/Coursework/WINTER_2019/"
 alias net_inf="source ~/Documents/ITS/net-infrastructure/bin/activate"
+alias work="cd ~/Documents/ITS/"
+
+# Shortcut Aliases
+alias diff='colordiff'
+alias ll="ls -la"
+alias ..="cd .."
+alias ...="cd ../../"
+alias mkcd='mkcd(){
+    mkdir -p "$1"
+    cd "$1"
+}; mkcd'
+
+
+# Safety
+alias mv="mv -i"
+alias cp="cp -i"
 
 # Environment Variables
 export EDITOR=$(which vim)
