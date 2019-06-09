@@ -30,11 +30,18 @@ function parse_git_branch() {
 # get current status of git repo
 function parse_git_dirty {
 	status=`git status 2>&1 | tee`
-    changed=`echo -n "${status}" 2> /dev/null | grep "working tree clean" &> /dev/null; echo "$?"`
+    clean=`echo -n "${status}" 2> /dev/null | grep "working tree clean" &> /dev/null; echo "$?"`
+    added=`echo -n "${status}" 2> /dev/null | grep "Changes to be committed" &> /dev/null; echo "$?"`
 	bits=''
-    if [ "${changed}" == "0" ]; then
+
+    if [ "${clean}" -eq "0" ]; then
+        # Directory is clean - GREEN
         bits="[0;32m"
+    elif [ "${added}" -eq "0" ]; then
+        # Uncommitted Additions - YELLOW 
+        bits="[0;33m"
     else
+        # Changes to be added - RED
         bits="[0;31m"
     fi
 
