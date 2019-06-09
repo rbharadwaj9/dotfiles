@@ -9,7 +9,7 @@ export PROMPT_COMMAND=refresh_prompt
 # Terminal Colors
 export CLICOLOR=1
 export TERM=xterm-256color
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LSCOLORS="Exfxcxdxbxegedabagacad"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
@@ -54,5 +54,5 @@ function parse_git_dirty {
 
 # Generate PS1 string to be exported by PROMPT_COMMAND
 function refresh_prompt {
-    export PS1="\u@\h:\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
+    export PS1="\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
 }
