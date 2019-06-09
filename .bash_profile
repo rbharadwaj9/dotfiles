@@ -1,9 +1,15 @@
+# Aliases
 alias coursework="cd ~/Documents/Coursework/WINTER_2019/"
 alias net_inf="source ~/Documents/ITS/net-infrastructure/bin/activate"
 
+# Environment Variables
 export EDITOR=$(which vim)
+export PROMPT_COMMAND=refresh_prompt
+
+# Terminal Colors
 export CLICOLOR=1
 export TERM=xterm-256color
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
@@ -27,9 +33,9 @@ function parse_git_dirty {
     changed=`echo -n "${status}" 2> /dev/null | grep "working tree clean" &> /dev/null; echo "$?"`
 	bits=''
     if [ "${changed}" == "0" ]; then
-        bits="[32m"
+        bits="[0;32m"
     else
-        bits="[31m"
+        bits="[0;31m"
     fi
 
 	if [ ! "${bits}" == "" ]; then
@@ -39,9 +45,7 @@ function parse_git_dirty {
 	fi
 }
 
-# export PS1="\u:\W \$(parse_git_dirty)\$(parse_git_branch) \e[m\\$ "
-# export PS1="\u:\W \[\033[33m\]\$(parse_git_branch)\[\033[00m\] \$"
+# Generate PS1 string to be exported by PROMPT_COMMAND
 function refresh_prompt {
     export PS1="\u@\h:\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
 }
-export PROMPT_COMMAND=refresh_prompt
