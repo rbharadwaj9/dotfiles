@@ -8,8 +8,7 @@ alias diff='colordiff'
 alias ll="ls -la"
 alias ..="cd .."
 alias ...="cd ../../"
-alias mkcd='mkcd(){
-    mkdir -p "$1"
+alias mkcd='mkcd(){ mkdir -p "$1"
     cd "$1"
 }; mkcd'
 
@@ -68,7 +67,15 @@ function parse_git_dirty {
 	fi
 }
 
+function set_virtualenv {
+    if test -z "$VIRTUAL_ENV"; then
+        echo ""
+    else
+        echo "[0;32m($(basename $VIRTUAL_ENV)) "
+    fi
+}
+
 # Generate PS1 string to be exported by PROMPT_COMMAND
 function refresh_prompt {
-    export PS1="\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
+    export PS1="\[\033\$(set_virtualenv)\[\033[00m\]\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
 }
