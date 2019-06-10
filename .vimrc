@@ -20,7 +20,7 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
 let g:ale_linter = {'python':['flake8', 'autopep8']}
-let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort']}
+let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy']}
 "let g:ale_completion_enabled = 1
 
 " Airline Settings
