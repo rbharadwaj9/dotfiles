@@ -77,5 +77,5 @@ function set_virtualenv {
 
 # Generate PS1 string to be exported by PROMPT_COMMAND
 function refresh_prompt {
-    export PS1="\[\033\$(set_virtualenv)\[\033[00m\]\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
+    export PS1="\[\033\$(set_virtualenv)\[\033[33m\]\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
 }
