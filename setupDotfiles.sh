@@ -9,7 +9,7 @@ do
     else
         if [ -d $dotfile ]
         then
-            # dotfile is folder
+            echo "$dotfile is a folder"
             mkdir ~/$(basename $dotfile)
             ln -s $(pwd)/$dotfile/* ~/$(basename $dotfile)  
         else
