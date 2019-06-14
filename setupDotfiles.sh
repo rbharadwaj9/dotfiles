@@ -2,12 +2,21 @@
 
 for dotfile in .[A-Za-z]*;
 do
-    if [ $dotfile = ".git" ];
+    echo $dotfile
+    if [ $dotfile = ".git" ] || [ $dotfile = ".DS_Store" ];
     then
         echo "Skipping $dotfile"
     else
-        echo "Creating symlink for dotfile: $dotfile"
-        ln -s $(pwd)/$dotfile ~/$(basename $dotfile)
+        if [ -d $dotfile ]
+        then
+            # dotfile is folder
+            mkdir ~/$(basename $dotfile)
+            ln -s $(pwd)/$dotfile/* ~/$(basename $dotfile)  
+        else
+            echo "Creating symlink for dotfile: $dotfile"
+            ln -s $(pwd)/$dotfile ~/$(basename $dotfile)
+        fi
     fi
+
 done
 echo "Symlink creation successful!"
