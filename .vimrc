@@ -4,12 +4,21 @@ call plug#begin()
 " INSERT ALL PLUGS
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
+
+" Linter
+Plug 'w0rp/ale'
+
+" Code Completion
 Plug 'maralla/completor.vim'
+
+" Bracket Completion
 Plug 'jiangmiao/auto-pairs'
+
+" Syntax Related Plugins
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cespare/vim-toml'
 
 " Initialize plugin system
 call plug#end()
@@ -21,12 +30,10 @@ let g:ale_lint_on_insert_leave = 1
 
 let g:ale_linter = {'python':['flake8', 'autopep8']}
 let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy']}
-"let g:ale_completion_enabled = 1
 
 " Airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
-
 
 " Other stuff personalized settings
 set number
@@ -44,11 +51,28 @@ set incsearch
 set noshowmode
 set title
 
+" Autocmds.
+autocmd FileType css,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 
 " Keybindings
 nnoremap <Space> <Nop>
 let mapleader = " "
 
+" Intuitive line scrolling
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
+" make Y consistent with C and D.
+nnoremap Y y$
+
+" Insert empty line
+nmap <leader>o m`o<ESC>``
+nmap <leader>O m`O<ESC>``
+
+" Disable Command Line history mode.
+map q: <Nop>
+
+" ALE specific mappings
 nmap <silent> <leader>aj :ALENextWrap<cr>
 nmap <silent> <leader>ak :ALEPreviousWrap<cr>
 nmap <silent> <leader>aa :ALEFix<cr>
