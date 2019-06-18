@@ -31,7 +31,6 @@ alias cp="cp -i"
 
 # Environment Variables
 export EDITOR=$(which vim)
-# export PROMPT_COMMAND=refresh_prompt
 
 # Terminal Colors
 export CLICOLOR=1
@@ -47,17 +46,16 @@ if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
 	bold=$(tput bold);
 	reset=$(tput sgr0);
-	# Solarized colors, taken from http://git.io/solarized-colors.
 	black=$(tput setaf 0);
-	blue=$(tput setaf 33);
-	cyan=$(tput setaf 37);
-	green=$(tput setaf 64);
-	orange=$(tput setaf 166);
-	purple=$(tput setaf 125);
+	blue=$(tput setaf 27);
+	cyan=$(tput setaf 39);
+	green=$(tput setaf 34);
+	orange=$(tput setaf 136);
+	purple=$(tput setaf 55);
 	red=$(tput setaf 124);
-	violet=$(tput setaf 61);
+	violet=$(tput setaf 63);
 	white=$(tput setaf 15);
-	yellow=$(tput setaf 136);
+	yellow=$(tput setaf 190);
 else
 	bold='';
 	reset="\e[0m";
@@ -107,15 +105,13 @@ function parse_git_dirty {
 if [[ "${SSH_TTY}" ]]; then
 	hostStyle="${bold}${red}";
 else
-	hostStyle="${yellow}";
+	hostStyle="${orange}";
 fi; 
 
-PS1="\[${yellow}\]\u@" # username
+PS1="\[${orange}\]\u@" # username
 PS1+="\[${hostStyle}\]\h:" # host
 PS1+="\[${violet}\]\W " # Current directory, change to \w for full path
 PS1+="\[\$(parse_git_dirty)\]"
 PS1+="\$(parse_git_branch)"
 PS1+="\[${reset}\]\$ " # $ character (and white)
 export PS1;
-#     export PS1="\[\033\$(set_virtualenv)\[\033[33m\]\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
-# }
