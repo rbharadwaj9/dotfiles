@@ -55,7 +55,7 @@ set title
 " Autocmds.
 autocmd FileType css,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 autocmd FileType html nmap <leader>r :!open %<cr>
-autocmd FileType gitcommit markdown setlocal spell
+autocmd FileType gitcommit,markdown setlocal spell
 
 " Keybindings
 nnoremap <Space> <Nop>
