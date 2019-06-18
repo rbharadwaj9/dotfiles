@@ -78,7 +78,7 @@ function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	if [ ! "${BRANCH}" == "" ]
 	then
-        echo "(${BRANCH})"
+        echo "(${BRANCH}) "
 	else
 		echo ""
 	fi
@@ -114,7 +114,7 @@ PS1="\[${yellow}\]\u@" # username
 PS1+="\[${hostStyle}\]\h:" # host
 PS1+="\[${violet}\]\W " # Current directory, change to \w for full path
 PS1+="\[\$(parse_git_dirty)\]"
-PS1+="\$(parse_git_branch) "
+PS1+="\$(parse_git_branch)"
 PS1+="\[${reset}\]\$ " # $ character (and white)
 export PS1;
 #     export PS1="\[\033\$(set_virtualenv)\[\033[33m\]\u@\h:\[\033[1;34m\]\W \[\033\$(parse_git_branch)\]\[\033[00m\] \$ "
