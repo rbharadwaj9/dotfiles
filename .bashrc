@@ -110,7 +110,7 @@ else
 	hostStyle="${yellow}";
 fi; 
 
-PS1="\[${yellow}\]\u@:" # username
+PS1="\[${yellow}\]\u@" # username
 PS1+="\[${hostStyle}\]\h:" # host
 PS1+="\[${violet}\]\W " # Current directory, change to \w for full path
 PS1+="\[\$(parse_git_dirty)\]"
