@@ -16,6 +16,8 @@ alias diff='colordiff'
 alias ll="ls -la"
 alias ..="cd .."
 alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
 
 alias mkdir="mkdir -p"
 alias mkcd='mkcd(){

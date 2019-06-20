@@ -79,3 +79,6 @@ map q: <Nop>
 nmap <silent> <leader>aj :ALENextWrap<cr>
 nmap <silent> <leader>ak :ALEPreviousWrap<cr>
 nmap <silent> <leader>aa :ALEFix<cr>
+
+" Replace word under cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
