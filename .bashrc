@@ -1,6 +1,6 @@
 # Aliases
 alias coursework="cd ~/Documents/Coursework/WINTER_2019/"
-alias net_inf="source ~/Documents/ITS/net-infrastructure/bin/activate"
+alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
 alias work="cd ~/Documents/ITS/"
 alias run='runserver(){
     if test -n "$VIRTUAL_ENV"; then
@@ -9,6 +9,7 @@ alias run='runserver(){
         echo "START VIRTUAL ENVIRONMENT FIRST"
     fi
 }; runserver'
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock Screen when AFK
 
 # Shortcut Aliases
 alias vi='vim'
@@ -25,7 +26,7 @@ alias mkcd='mkcd(){
     cd "$1"
 }; mkcd'
 alias doco="docker-compose"
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock Screen when AFK
+alias grep="grep --color"
 
 # Safety
 alias mv="mv -i"
@@ -110,6 +111,7 @@ else
 	hostStyle="${orange}";
 fi; 
 
+# PS1 Variable
 PS1="\[${orange}\]\u@" # username
 PS1+="\[${hostStyle}\]\h:" # host
 PS1+="\[${violet}\]\W " # Current directory, change to \w for full path
