@@ -11,6 +11,10 @@ alias run='runserver(){
 }; runserver'
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock Screen when AFK
 
+# Git Aliases
+alias gs="git status"
+alias gco="git checkout"
+
 # Shortcut Aliases
 alias vi='vim'
 alias diff='colordiff'
