@@ -12,6 +12,7 @@ Plug 'w0rp/ale'
 
 " Code Completion
 Plug 'maralla/completor.vim'
+Plug 'maralla/completor-typescript'
 
 " Bracket Completion
 Plug 'jiangmiao/auto-pairs'
@@ -21,6 +22,10 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'cespare/vim-toml'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'pangloss/vim-javascript'
+Plug 'ap/vim-css-color'
+
+" Typescript
+Plug 'leafgarland/typescript-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -30,7 +35,7 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
 let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['eslint', 'prettier']}
-let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format']}
+let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format'], 'typescript':['tslint','eslint']}
 
 " Completor Settings
 let g:completor_node_binary = '/usr/local/bin/node'
@@ -80,7 +85,7 @@ set nofoldenable
 set showcmd
 
 " Autocmds.
-autocmd FileType css,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+autocmd FileType typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 autocmd FileType html nmap <leader>r :!open %<cr>
 autocmd FileType gitcommit,markdown setlocal spell
 

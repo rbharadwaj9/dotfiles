@@ -18,7 +18,7 @@ alias gco="git checkout"
 # Shortcut Aliases
 alias vi='vim'
 alias diff='colordiff'
-alias ll="ls -la"
+alias ll="ls -lahG"
 alias ..="cd .."
 alias ...="cd ../../"
 alias ....="cd ../../../"
