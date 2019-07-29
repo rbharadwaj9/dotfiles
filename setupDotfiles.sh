@@ -17,6 +17,7 @@ do
             ln -s $(pwd)/$dotfile ~/$(basename $dotfile)
         fi
     fi
-
 done
+
+ln -s karabiner.json ~/.config/karabiner/karabiner.json
 echo "Symlink creation successful!"
