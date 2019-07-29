@@ -19,5 +19,5 @@ do
     fi
 done
 
-ln -s karabiner.json ~/.config/karabiner/karabiner.json
+ln -s karabiner.json ~/.config/karabiner/karabiner.json && echo "Karabiner config symlinked" || echo "Error while symlinking Karabiner"
 echo "Symlink creation successful!"
