@@ -44,9 +44,11 @@ export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS="Exfxcxdxbxegedabagacad"
 
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
+    # if not found in /usr/local/etc, try the brew --prefix location
+    [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
+        . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+}
 
 # Coloring inspired by @mathiasbynens's prompt: https://github.com/mathiasbynens/dotfiles
 if tput setaf 1 &> /dev/null; then
@@ -123,3 +125,9 @@ PS1+="\[\$(parse_git_dirty)\]"
 PS1+="\$(parse_git_branch)"
 PS1+="\[${reset}\]\$ " # $ character (and white)
 export PS1;
+
+# Startup scripts
+if [[ -z $TMUX ]]; then
+    ~/run-tmux.sh
+fi
+
