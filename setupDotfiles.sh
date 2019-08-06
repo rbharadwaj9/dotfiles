@@ -19,6 +19,6 @@ do
     fi
 done
 
-ln -s karabiner.json ~/.config/karabiner/karabiner.json && echo "Karabiner config symlinked" || echo "Error while symlinking Karabiner"
-ln -s windows-binding.json ~/.config/karabiner/assets/complex_modifications/windows-binding.json && echo "Karabiner Complex Modification symlinked" || echo "Error while symlinking complex modification"
+cp karabiner.json ~/.config/karabiner/karabiner.json && echo "Karabiner config copied" || echo "Error while copying Karabiner"
+cp windows-binding.json ~/.config/karabiner/assets/complex_modifications/windows-binding.json && echo "Karabiner Complex Modification copied" || echo "Error while copying complex modification"
 echo "Symlink creation successful!"
