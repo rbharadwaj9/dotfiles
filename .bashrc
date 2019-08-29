@@ -1,3 +1,9 @@
+# Skip config if not run interactively - fixes issues with rsync
+case $- in
+    *i*) ;;
+    *) return;;
+esac
+
 # Aliases
 alias coursework="cd ~/Documents/Coursework/WINTER_2019/"
 alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
@@ -127,7 +133,6 @@ PS1+="\[${reset}\]\$ " # $ character (and white)
 export PS1;
 
 # Startup scripts
-if [[ -z $TMUX ]]; then
+if [[ -z $TMUX ]] && [[ -z "${SSH_TTY}" ]]; then
     ~/run-tmux.sh
 fi
-
