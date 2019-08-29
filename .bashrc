@@ -50,7 +50,7 @@ export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS="Exfxcxdxbxegedabagacad"
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || "WARNING: Bash Completion is not enabled."
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || echo "WARNING: Bash Completion is not enabled."
 
 # Coloring inspired by @mathiasbynens's prompt: https://github.com/mathiasbynens/dotfiles
 if tput setaf 1 &> /dev/null; then
