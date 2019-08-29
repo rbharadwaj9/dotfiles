@@ -21,4 +21,7 @@ done
 
 cp karabiner.json ~/.config/karabiner/karabiner.json && echo "Karabiner config copied" || echo "Error while copying Karabiner"
 cp windows-binding.json ~/.config/karabiner/assets/complex_modifications/windows-binding.json && echo "Karabiner Complex Modification copied" || echo "Error while copying complex modification"
+
+ln -s $(pwd)/run-tmux.sh ~/run-tmux.sh || echo "Error while symlinking tmux startup script"
+
 echo "Symlink creation successful!"

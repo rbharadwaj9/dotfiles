@@ -2,27 +2,41 @@
 
 # set -x
 
-IFS=' ' read -a sessions <<< "$(tmux list-sessions -F '#S' | tr '\n' ' ')"
-sessions=("Start a new session" "${sessions[@]}")
-
-i=0
-for session in "${sessions[@]}"
+while True
 do
-    echo $i. $session
-    ((i++))
-done
+    IFS=' ' read -a sessions <<< "$(tmux list-sessions -F '#S' | tr '\n' ' ')"
+    sessions=("Start a new session" "${sessions[@]}")
 
-read -p "What do you want to do?: " input
+    i=0
+    for session in "${sessions[@]}"
+    do
+        echo $i. $session
+        ((i++))
+    done
 
-if [[ $input -eq 0 ]]
-then
-    read -p "Name your session: " name
-    tmux new -s $name
-else
-    if [[ -n ${sessions[${input}]} ]]
+    read -p "What do you want to do?: " input args
+
+    if [[ "$input" == "e" ]]
     then
-        tmux attach -t ${sessions[${input}]}
+        exit 0
+    elif [[ "$input" -eq "0" ]]
+    then
+        read -p "Name your session: " name
+        tmux new -s $name
     else
-        echo "Invalid action"
+        if [[ -n ${sessions[${input}]} ]]
+        then
+            case ${args} in
+                r)
+                    echo "Killing session ${sessions[${input}]}."
+                    tmux kill-session -t ${sessions[${input}]}
+                    ;;
+                *)
+                    tmux attach -t ${sessions[${input}]}
+                    ;;
+            esac
+        else
+            echo "Invalid action"
+        fi
     fi
-fi
+done

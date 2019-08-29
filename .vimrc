@@ -15,6 +15,7 @@ Plug 'maralla/completor.vim'
 Plug 'maralla/completor-typescript'
 
 " Bracket Completion
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 
 " Syntax Related Plugins
@@ -34,7 +35,7 @@ call plug#end()
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
-let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['eslint', 'prettier']}
+let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['eslint', 'prettier'], 'cpp':['cppcheck']}
 let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format'], 'typescript':['tslint','eslint']}
 
 " Completor Settings
