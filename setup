@@ -25,6 +25,6 @@ then
     cp windows-binding.json ~/.config/karabiner/assets/complex_modifications/windows-binding.json && echo "Karabiner Complex Modification copied" || echo "Error while copying complex modification"
 fi
 
-ln -s $(pwd)/run-tmux.sh ~/run-tmux.sh || echo "Error while symlinking tmux startup script"
+ln -s $(pwd)/startmux ~/startmux || echo "Error while symlinking tmux startup script"
 
 echo "Symlink creation successful!"

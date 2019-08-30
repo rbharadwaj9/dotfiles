@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # set -x
 
-while True
+while true
 do
     IFS=' ' read -a sessions <<< "$(tmux list-sessions -F '#S' | tr '\n' ' ')"
     sessions=("Start a new session" "${sessions[@]}")
