@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Aliases
-alias coursework="cd ~/Documents/Coursework/WINTER_2019/"
+alias coursework="cd ~/Documents/Coursework/FALL_2019/"
 alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
 alias work="cd ~/Documents/ITS/"
 alias run='runserver(){
@@ -20,6 +20,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Git Aliases
 alias gs="git status"
 alias gco="git checkout"
+alias gl="git log --oneline"
 
 # Shortcut Aliases
 alias vi='vim'
@@ -130,5 +131,5 @@ export PS1;
 
 # Startup scripts
 if [[ -z $TMUX ]] && [[ -z "${SSH_TTY}" ]]; then
-    ~/run-tmux.sh
+    ~/startmux
 fi

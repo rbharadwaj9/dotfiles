@@ -3,9 +3,13 @@ call plug#begin()
 
 " INSERT ALL PLUGS
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
+Plug 'ludovicchabant/vim-gutentags'
+
+" Refactoring with multiple cursors
+Plug 'terryma/vim-multiple-cursors'
 
 " Linter
 Plug 'w0rp/ale'
@@ -28,23 +32,28 @@ Plug 'ap/vim-css-color'
 " Typescript
 Plug 'leafgarland/typescript-vim'
 
+" C++
+Plug 'rbharadwaj9/a.vim'
+
 " Initialize plugin system
 call plug#end()
+
+set statusline+=%{gutentags#statusline()}
 
 " Update linting when exiting insert mode
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
-let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['eslint', 'prettier'], 'cpp':['cppcheck']}
-let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format'], 'typescript':['tslint','eslint']}
+let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['eslint', 'prettier'], 'cpp':['cppcheck', 'oclint']}
+let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format', 'clangtidy'], 'typescript':['tslint','eslint']}
 
 " Completor Settings
 let g:completor_node_binary = '/usr/local/bin/node'
 
-let g:completor_complete_options = 'menuone,noselect,preview'
 noremap <silent> <leader>c :call completor#do('doc')<CR>
 noremap <silent> <leader>d :call completor#do('definition')<CR>
 noremap <silent> <leader>s :call completor#do('hover')<CR>
+
 
 " Airline Settings
 let g:airline#extensions#branch#enabled=1
@@ -84,11 +93,15 @@ set title
 set foldmethod=indent
 set nofoldenable
 set showcmd
+set completeopt=menuone,noselect,preview
+" highlight ColorColumn ctermbg=magenta 
 
 " Autocmds.
 autocmd FileType typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 autocmd FileType html nmap <leader>r :!open %<cr>
 autocmd FileType gitcommit,markdown setlocal spell
+autocmd FileType cpp,h,c set colorcolumn=90 foldmethod=syntax
+" autocmd FileType cpp let w:m2=matchadd('ColorColumn', '\%>80v.\+', 100)
 
 " Keybindings
 nnoremap <Space> <Nop>
@@ -105,6 +118,9 @@ nnoremap Y y$
 nmap <leader>o m`o<ESC>``
 nmap <leader>O m`O<ESC>``
 
+" Paste block without exitting visual mode
+nnoremap <Leader>p pg`[1v
+
 " Disable Command Line history mode.
 map q: <Nop>
 
@@ -119,4 +135,4 @@ nmap <silent> <leader>aa :ALEFix<cr>
 " nmap <silent> <C-h> <C-w><C-h><cr>
 
 " Replace word under cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>

@@ -1,0 +1,358 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+_fatal_error_abort	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^_fatal_error_abort() {$/;"	f
+_get_digits_from_string	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^_get_digits_from_string() {$/;"	f
+_get_user_tmux_conf	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^_get_user_tmux_conf() {$/;"	f
+_has_emacs_mode_keys	.tmux/plugins/tpm/scripts/helpers/tmux_echo_functions.sh	/^_has_emacs_mode_keys() {$/;"	f
+_manual_expansion	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^_manual_expansion() {$/;"	f
+_sourced_files	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^_sourced_files() {$/;"	f
+_tmux_conf_contents	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^_tmux_conf_contents() {$/;"	f
+_tpm_path	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^_tpm_path() {$/;"	f
+acpi_battery_remaining_time	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^acpi_battery_remaining_time() {$/;"	f
+add_directory_width	.tmux/plugins/tmux-sidebar/scripts/save_sidebar_width.sh	/^add_directory_width() {$/;"	f
+apm_battery_remaining_time	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^apm_battery_remaining_time() {$/;"	f
+append_ul	.vim/autoload/plug.vim	/^function! s:append_ul(lnum, text)$/;"	f
+ask	.vim/autoload/plug.vim	/^function! s:ask(message, ...)$/;"	f
+ask_no_interrupt	.vim/autoload/plug.vim	/^function! s:ask_no_interrupt(...)$/;"	f
+assign_name	.vim/autoload/plug.vim	/^function! s:assign_name()$/;"	f
+assoc	.vim/autoload/plug.vim	/^function! s:assoc(dict, key, val)$/;"	f
+bang	.vim/autoload/plug.vim	/^function! s:bang(cmd, ...)$/;"	f
+bar	.vim/autoload/plug.vim	/^function! s:bar()$/;"	f
+batchfile	.vim/autoload/plug.vim	/^  function! s:batchfile(cmd)$/;"	f
+battery_charged	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^battery_charged() {$/;"	f
+battery_discharging	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^battery_discharging() {$/;"	f
+battery_status	.tmux/plugins/tmux-battery/scripts/helpers.sh	/^battery_status() {$/;"	f
+check_binding_defined	.tmux/plugins/tpm/tests/test_plugin_sourcing.sh	/^check_binding_defined() {$/;"	f
+check_dir_exists_helper	.tmux/plugins/tpm/tests/helpers/tpm.sh	/^check_dir_exists_helper() {$/;"	f
+check_ruby	.vim/autoload/plug.vim	/^function! s:check_ruby()$/;"	f
+check_tpm_path	.tmux/plugins/tpm/tests/test_plugin_sourcing.sh	/^check_tpm_path() {$/;"	f
+checkout	.vim/autoload/plug.vim	/^function! s:checkout(spec)$/;"	f
+chsh	.vim/autoload/plug.vim	/^function! s:chsh(swap)$/;"	f
+clean	.vim/autoload/plug.vim	/^function! s:clean(force)$/;"	f
+clean_plugins	.tmux/plugins/tpm/scripts/clean_plugins.sh	/^clean_plugins() {$/;"	f
+clone	.tmux/plugins/tpm/scripts/install_plugins.sh	/^clone() {$/;"	f
+clone_plugin	.tmux/plugins/tpm/scripts/install_plugins.sh	/^clone_plugin() {$/;"	f
+command_exists	.tmux/plugins/tmux-battery/scripts/helpers.sh	/^command_exists() {$/;"	f
+command_exists	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^command_exists() {$/;"	f
+compare_git_uri	.vim/autoload/plug.vim	/^function! s:compare_git_uri(a, b)$/;"	f
+convertmins	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^convertmins() {$/;"	f
+create_sidebar	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^create_sidebar() {$/;"	f
+create_test_plugin_helper	.tmux/plugins/tpm/tests/test_plugin_sourcing.sh	/^create_test_plugin_helper() {$/;"	f
+current_pane_is_sidebar	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^current_pane_is_sidebar() {$/;"	f
+current_pane_too_narrow	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^current_pane_too_narrow() {$/;"	f
+current_pane_width_not_changed	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^current_pane_width_not_changed() {$/;"	f
+current_track_property	.tmux/plugins/tmux-spotify/scripts/helpers.sh	/^current_track_property() {$/;"	f
+define_commands	.vim/autoload/plug.vim	/^function! s:define_commands()$/;"	f
+delete	.vim/autoload/plug.vim	/^function! s:delete(range, force)$/;"	f
+delete_op	.vim/autoload/plug.vim	/^function! s:delete_op(type, ...)$/;"	f
+desired_sidebar_size	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^desired_sidebar_size() {$/;"	f
+diff	.vim/autoload/plug.vim	/^function! s:diff()$/;"	f
+directory_in_sidebar_file	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^directory_in_sidebar_file() {$/;"	f
+dirpath	.vim/autoload/plug.vim	/^  function! s:dirpath(path)$/;"	f
+display_message	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^display_message() {$/;"	f
+display_message	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^display_message() {$/;"	f
+display_message	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^display_message() {$/;"	f
+display_plugin_update_list	.tmux/plugins/tpm/bindings/update_plugins	/^display_plugin_update_list() {$/;"	f
+do	.vim/autoload/plug.vim	/^function! s:do(pull, force, todo)$/;"	f
+do_interpolation	.tmux/plugins/tmux-battery/battery.tmux	/^do_interpolation() {$/;"	f
+do_interpolation	.tmux/plugins/tmux-spotify/spotify.tmux	/^do_interpolation() {$/;"	f
+doautocmd	.vim/autoload/plug.vim	/^function! s:doautocmd(...)$/;"	f
+dobufread	.vim/autoload/plug.vim	/^function! s:dobufread(names)$/;"	f
+echo_err	.tmux/plugins/tpm/scripts/helpers/shell_echo_functions.sh	/^echo_err() {$/;"	f
+echo_err	.tmux/plugins/tpm/scripts/helpers/tmux_echo_functions.sh	/^echo_err() {$/;"	f
+echo_ok	.tmux/plugins/tpm/scripts/helpers/shell_echo_functions.sh	/^echo_ok() {$/;"	f
+echo_ok	.tmux/plugins/tpm/scripts/helpers/tmux_echo_functions.sh	/^echo_ok() {$/;"	f
+end_message	.tmux/plugins/tpm/scripts/helpers/tmux_echo_functions.sh	/^end_message() {$/;"	f
+ensure_tpm_path_exists	.tmux/plugins/tpm/scripts/helpers/utility.sh	/^ensure_tpm_path_exists() {$/;"	f
+err	.vim/autoload/plug.vim	/^function! s:err(msg)$/;"	f
+esc	.vim/autoload/plug.vim	/^function! s:esc(path)$/;"	f
+escrtp	.vim/autoload/plug.vim	/^function! s:escrtp(path)$/;"	f
+execute_command_from_main_pane	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^execute_command_from_main_pane() {$/;"	f
+exit_if_pane_too_narrow	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^exit_if_pane_too_narrow() {$/;"	f
+exit_if_unsupported_version	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^exit_if_unsupported_version() {$/;"	f
+exit_if_unsupported_version	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^exit_if_unsupported_version() {$/;"	f
+exit_value_helper	.tmux/plugins/tpm/scripts/helpers/utility.sh	/^exit_value_helper() {$/;"	f
+extract_name	.vim/autoload/plug.vim	/^function! s:extract_name(str, prefix, suffix)$/;"	f
+fail_helper	.tmux/plugins/tpm/scripts/helpers/utility.sh	/^fail_helper() {$/;"	f
+find_name	.vim/autoload/plug.vim	/^function! s:find_name(lnum)$/;"	f
+finish	.vim/autoload/plug.vim	/^function! s:finish(pull)$/;"	f
+finish_bindings	.vim/autoload/plug.vim	/^function! s:finish_bindings()$/;"	f
+format_git_log	.vim/autoload/plug.vim	/^function! s:format_git_log(line)$/;"	f
+format_message	.vim/autoload/plug.vim	/^function! s:format_message(bullet, name, message)$/;"	f
+g:colors_name	.vim/colors/molokai.vim	/^let g:colors_name="molokai"$/;"	v
+g:loaded_plug	.vim/autoload/plug.vim	/^let g:loaded_plug = 1$/;"	v
+g:plugs_order	.vim/autoload/plug.vim	/^  let g:plugs_order = get(g:, 'plugs_order', keys(g:plugs))$/;"	v
+get_charge_color_settings	.tmux/plugins/tmux-battery/scripts/battery_status_bg.sh	/^get_charge_color_settings() {$/;"	f
+get_charge_color_settings	.tmux/plugins/tmux-battery/scripts/battery_status_fg.sh	/^get_charge_color_settings() {$/;"	f
+get_color_charge_settings	.tmux/plugins/tmux-battery/scripts/battery_color_charge.sh	/^get_color_charge_settings() {$/;"	f
+get_color_status_settings	.tmux/plugins/tmux-battery/scripts/battery_color_status.sh	/^get_color_status_settings() {$/;"	f
+get_digits_from_string	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^get_digits_from_string() {$/;"	f
+get_digits_from_string	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^get_digits_from_string() {$/;"	f
+get_icon_charge_settings	.tmux/plugins/tmux-battery/scripts/battery_icon_charge.sh	/^get_icon_charge_settings() {$/;"	f
+get_icon_status_charged_default	.tmux/plugins/tmux-battery/scripts/battery_icon_status.sh	/^get_icon_status_charged_default() {$/;"	f
+get_icon_status_settings	.tmux/plugins/tmux-battery/scripts/battery_icon_status.sh	/^get_icon_status_settings() {$/;"	f
+get_key_from_option_name	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^get_key_from_option_name() {$/;"	f
+get_pane_info	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^get_pane_info() {$/;"	f
+get_remain_settings	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^get_remain_settings() {$/;"	f
+get_tmux_option	.tmux/plugins/tmux-battery/scripts/helpers.sh	/^get_tmux_option() {$/;"	f
+get_tmux_option	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^get_tmux_option() {$/;"	f
+get_tmux_option	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^get_tmux_option() {$/;"	f
+get_tmux_option	.tmux/plugins/tmux-spotify/scripts/helpers.sh	/^get_tmux_option() {$/;"	f
+get_tmux_option	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^get_tmux_option() {$/;"	f
+get_tmux_option	.tmux/plugins/tpm/tpm	/^get_tmux_option() {$/;"	f
+get_value_from_option_name	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^get_value_from_option_name() {$/;"	f
+git_validate	.vim/autoload/plug.vim	/^function! s:git_validate(spec, check_branch)$/;"	f
+git_version_requirement	.vim/autoload/plug.vim	/^function! s:git_version_requirement(...)$/;"	f
+glob	.vim/autoload/plug.vim	/^function! s:glob(from, pattern)$/;"	f
+glob_dir	.vim/autoload/plug.vim	/^function! s:glob_dir(path)$/;"	f
+has_sidebar	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^has_sidebar() {$/;"	f
+hash_match	.vim/autoload/plug.vim	/^function! s:hash_match(a, b)$/;"	f
+infer_properties	.vim/autoload/plug.vim	/^function! s:infer_properties(name, repo)$/;"	f
+install	.vim/autoload/plug.vim	/^function! s:install(force, names)$/;"	f
+install_plugin	.tmux/plugins/tpm/scripts/install_plugins.sh	/^install_plugin() {$/;"	f
+install_plugins	.tmux/plugins/tpm/scripts/install_plugins.sh	/^install_plugins() {$/;"	f
+is_chrome	.tmux/plugins/tmux-battery/scripts/helpers.sh	/^is_chrome() {$/;"	f
+is_local_plug	.vim/autoload/plug.vim	/^  function! s:is_local_plug(repo)$/;"	f
+is_managed	.vim/autoload/plug.vim	/^function! s:is_managed(name)$/;"	f
+is_osx	.tmux/plugins/tmux-battery/scripts/helpers.sh	/^is_osx() {$/;"	f
+is_preview_window_open	.vim/autoload/plug.vim	/^function! s:is_preview_window_open()$/;"	f
+is_updated	.vim/autoload/plug.vim	/^function! s:is_updated(dir)$/;"	f
+job_abort	.vim/autoload/plug.vim	/^function! s:job_abort()$/;"	f
+job_cb	.vim/autoload/plug.vim	/^function! s:job_cb(fn, job, ch, data)$/;"	f
+job_exit_cb	.vim/autoload/plug.vim	/^function! s:job_exit_cb(self, data) abort$/;"	f
+job_out_cb	.vim/autoload/plug.vim	/^function! s:job_out_cb(self, data) abort$/;"	f
+kill_sidebar	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^kill_sidebar() {$/;"	f
+last_non_empty_line	.vim/autoload/plug.vim	/^function! s:last_non_empty_line(lines)$/;"	f
+lastline	.vim/autoload/plug.vim	/^function! s:lastline(msg)$/;"	f
+lazy	.vim/autoload/plug.vim	/^function! s:lazy(plug, opt)$/;"	f
+lines	.vim/autoload/plug.vim	/^function! s:lines(msg)$/;"	f
+load_plugin	.vim/autoload/plug.vim	/^function! s:load_plugin(spec)$/;"	f
+loaded_names	.vim/autoload/plug.vim	/^function! s:loaded_names()$/;"	f
+lod	.vim/autoload/plug.vim	/^function! s:lod(names, types, ...)$/;"	f
+lod_cmd	.vim/autoload/plug.vim	/^function! s:lod_cmd(cmd, bang, l1, l2, args, names)$/;"	f
+lod_ft	.vim/autoload/plug.vim	/^function! s:lod_ft(pat, names)$/;"	f
+lod_map	.vim/autoload/plug.vim	/^function! s:lod_map(map, names, with_prefix, prefix)$/;"	f
+log	.vim/autoload/plug.vim	/^function! s:log(bullet, name, lines)$/;"	f
+log4	.vim/autoload/plug.vim	/^function! s:log4(name, msg)$/;"	f
+logpos	.vim/autoload/plug.vim	/^function! s:logpos(name)$/;"	f
+lpad	.vim/autoload/plug.vim	/^function! s:lpad(str, len)$/;"	f
+main	.tmux/plugins/tmux-battery/battery.tmux	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_color.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_color_charge.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_color_status.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_graph.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_icon.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_icon_charge.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_icon_status.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_percentage.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_status_bg.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-battery/scripts/battery_status_fg.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-sidebar/scripts/save_sidebar_width.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-sidebar/sidebar.tmux	/^main() {$/;"	f
+main	.tmux/plugins/tmux-spotify/scripts/spotify_album.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-spotify/scripts/spotify_artist.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-spotify/scripts/spotify_status.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-spotify/scripts/spotify_track.sh	/^main() {$/;"	f
+main	.tmux/plugins/tmux-spotify/spotify.tmux	/^main() {$/;"	f
+main	.tmux/plugins/tpm/bin/clean_plugins	/^main() {$/;"	f
+main	.tmux/plugins/tpm/bin/install_plugins	/^main() {$/;"	f
+main	.tmux/plugins/tpm/bin/update_plugins	/^main() {$/;"	f
+main	.tmux/plugins/tpm/bindings/clean_plugins	/^main() {$/;"	f
+main	.tmux/plugins/tpm/bindings/install_plugins	/^main() {$/;"	f
+main	.tmux/plugins/tpm/bindings/update_plugins	/^main() {$/;"	f
+main	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^main() {$/;"	f
+main	.tmux/plugins/tpm/scripts/clean_plugins.sh	/^main() {$/;"	f
+main	.tmux/plugins/tpm/scripts/install_plugins.sh	/^main() {$/;"	f
+main	.tmux/plugins/tpm/scripts/source_plugins.sh	/^main() {$/;"	f
+main	.tmux/plugins/tpm/scripts/update_plugin.sh	/^main() {$/;"	f
+main	.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh	/^main() {$/;"	f
+main	.tmux/plugins/tpm/tpm	/^main() {$/;"	f
+manually_install_the_plugin	.tmux/plugins/tpm/tests/test_plugin_clean.sh	/^manually_install_the_plugin() {$/;"	f
+manually_install_the_plugin	.tmux/plugins/tpm/tests/test_plugin_update.sh	/^manually_install_the_plugin() {$/;"	f
+names	.vim/autoload/plug.vim	/^function! s:names(...)$/;"	f
+new_window	.vim/autoload/plug.vim	/^function! s:new_window()$/;"	f
+no_focus	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^no_focus() {$/;"	f
+nvim_cb	.vim/autoload/plug.vim	/^function! s:nvim_cb(job_id, data, event) dict abort$/;"	f
+parse_options	.vim/autoload/plug.vim	/^function! s:parse_options(arg)$/;"	f
+path	.vim/autoload/plug.vim	/^  function! s:path(path)$/;"	f
+plug#	.vim/autoload/plug.vim	/^function! plug#(repo, ...)$/;"	f
+plug#begin	.vim/autoload/plug.vim	/^function! plug#begin(...)$/;"	f
+plug#end	.vim/autoload/plug.vim	/^function! plug#end()$/;"	f
+plug#helptags	.vim/autoload/plug.vim	/^function! plug#helptags()$/;"	f
+plug#load	.vim/autoload/plug.vim	/^function! plug#load(...)$/;"	f
+plug#shellescape	.vim/autoload/plug.vim	/^function! plug#shellescape(arg, ...)$/;"	f
+plug_window_exists	.vim/autoload/plug.vim	/^function! s:plug_window_exists()$/;"	f
+plugin_already_installed	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^plugin_already_installed() {$/;"	f
+plugin_dir_exists	.tmux/plugins/tpm/scripts/source_plugins.sh	/^plugin_dir_exists() {$/;"	f
+plugin_name_helper	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^plugin_name_helper() {$/;"	f
+plugin_path_helper	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^plugin_path_helper() {$/;"	f
+pmset_battery_remaining_time	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^pmset_battery_remaining_time() {$/;"	f
+prepare	.vim/autoload/plug.vim	/^function! s:prepare(...)$/;"	f
+preview_commit	.vim/autoload/plug.vim	/^function! s:preview_commit()$/;"	f
+print_battery_percentage	.tmux/plugins/tmux-battery/scripts/battery_percentage.sh	/^print_battery_percentage() {$/;"	f
+print_battery_remain	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^print_battery_remain() {$/;"	f
+print_battery_status_bg	.tmux/plugins/tmux-battery/scripts/battery_status_bg.sh	/^print_battery_status_bg() {$/;"	f
+print_battery_status_fg	.tmux/plugins/tmux-battery/scripts/battery_status_fg.sh	/^print_battery_status_fg() {$/;"	f
+print_color	.tmux/plugins/tmux-battery/scripts/battery_color.sh	/^print_color() {$/;"	f
+print_color_charge	.tmux/plugins/tmux-battery/scripts/battery_color_charge.sh	/^print_color_charge() {$/;"	f
+print_color_status	.tmux/plugins/tmux-battery/scripts/battery_color_status.sh	/^print_color_status() {$/;"	f
+print_graph	.tmux/plugins/tmux-battery/scripts/battery_graph.sh	/^print_graph() {$/;"	f
+print_icon	.tmux/plugins/tmux-battery/scripts/battery_icon.sh	/^print_icon() {$/;"	f
+print_icon_charge	.tmux/plugins/tmux-battery/scripts/battery_icon_charge.sh	/^print_icon_charge() {$/;"	f
+print_icon_status	.tmux/plugins/tmux-battery/scripts/battery_icon_status.sh	/^print_icon_status() {$/;"	f
+print_spotify_album	.tmux/plugins/tmux-spotify/scripts/spotify_album.sh	/^print_spotify_album() {$/;"	f
+print_spotify_artist	.tmux/plugins/tmux-spotify/scripts/spotify_artist.sh	/^print_spotify_artist() {$/;"	f
+print_spotify_status	.tmux/plugins/tmux-spotify/scripts/spotify_status.sh	/^print_spotify_status() {$/;"	f
+print_spotify_track	.tmux/plugins/tmux-spotify/scripts/spotify_track.sh	/^print_spotify_track() {$/;"	f
+progress_bar	.vim/autoload/plug.vim	/^function! s:progress_bar(line, bar, total)$/;"	f
+progress_opt	.vim/autoload/plug.vim	/^function! s:progress_opt(base)$/;"	f
+pull_changes	.tmux/plugins/tpm/scripts/update_plugin.sh	/^pull_changes() {$/;"	f
+reap	.vim/autoload/plug.vim	/^function! s:reap(name)$/;"	f
+register_sidebar	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^register_sidebar() {$/;"	f
+registration_not_for_the_same_command	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^registration_not_for_the_same_command() {$/;"	f
+regress_bar	.vim/autoload/plug.vim	/^function! s:regress_bar()$/;"	f
+reload_plugins	.vim/autoload/plug.vim	/^function! s:reload_plugins()$/;"	f
+reload_tmux_environment	.tmux/plugins/tpm/scripts/helpers/tmux_utils.sh	/^reload_tmux_environment() {$/;"	f
+remove_rtp	.vim/autoload/plug.vim	/^function! s:remove_rtp()$/;"	f
+remove_triggers	.vim/autoload/plug.vim	/^function! s:remove_triggers(name)$/;"	f
+reorg_rtp	.vim/autoload/plug.vim	/^function! s:reorg_rtp()$/;"	f
+replace_directory_width	.tmux/plugins/tmux-sidebar/scripts/save_sidebar_width.sh	/^replace_directory_width() {$/;"	f
+retry	.vim/autoload/plug.vim	/^function! s:retry()$/;"	f
+revert	.vim/autoload/plug.vim	/^function! s:revert()$/;"	f
+rm_rf	.vim/autoload/plug.vim	/^function! s:rm_rf(dir)$/;"	f
+rtp	.vim/autoload/plug.vim	/^  function! s:rtp(spec)$/;"	f
+s:TYPE	.vim/autoload/plug.vim	/^let s:TYPE = {$/;"	v
+s:base_spec	.vim/autoload/plug.vim	/^let s:base_spec = { 'branch': 'master', 'frozen': 0 }$/;"	v
+s:cpo_save	.vim/autoload/plug.vim	/^let s:cpo_save = &cpo$/;"	v
+s:first_rtp	.vim/autoload/plug.vim	/^let s:first_rtp = s:escrtp(get(s:split_rtp(), 0, ''))$/;"	v
+s:is_win	.vim/autoload/plug.vim	/^let s:is_win = has('win32')$/;"	v
+s:last_rtp	.vim/autoload/plug.vim	/^let s:last_rtp  = s:escrtp(get(s:split_rtp(), -1, ''))$/;"	v
+s:loaded	.vim/autoload/plug.vim	/^let s:loaded = get(s:, 'loaded', {})$/;"	v
+s:mac_gui	.vim/autoload/plug.vim	/^let s:mac_gui = has('gui_macvim') && has('gui_running')$/;"	v
+s:me	.vim/autoload/plug.vim	/^let s:me = resolve(expand('<sfile>:p'))$/;"	v
+s:molokai_original	.vim/colors/molokai.vim	/^    let s:molokai_original = 0$/;"	v
+s:molokai_original	.vim/colors/molokai.vim	/^    let s:molokai_original = g:molokai_original$/;"	v
+s:nvim	.vim/autoload/plug.vim	/^let s:nvim = has('nvim-0.2') || (has('nvim') && exists('*jobwait') && !s:is_win)$/;"	v
+s:plug_buf	.vim/autoload/plug.vim	/^let s:plug_buf = get(s:, 'plug_buf', -1)$/;"	v
+s:plug_src	.vim/autoload/plug.vim	/^let s:plug_src = 'https:\/\/github.com\/junegunn\/vim-plug.git'$/;"	v
+s:plug_tab	.vim/autoload/plug.vim	/^let s:plug_tab = get(s:, 'plug_tab', -1)$/;"	v
+s:triggers	.vim/autoload/plug.vim	/^let s:triggers = get(s:, 'triggers', {})$/;"	v
+s:vim8	.vim/autoload/plug.vim	/^let s:vim8 = has('patch-8.0.0039') && exists('*job_start')$/;"	v
+save_sidebar_width	.tmux/plugins/tmux-sidebar/scripts/save_sidebar_width.sh	/^save_sidebar_width() {$/;"	f
+script_run_helper	.tmux/plugins/tpm/tests/helpers/tpm.sh	/^script_run_helper() {$/;"	f
+section	.vim/autoload/plug.vim	/^function! s:section(flags)$/;"	f
+set_default_key_binding_options	.tmux/plugins/tmux-sidebar/sidebar.tmux	/^set_default_key_binding_options() {$/;"	f
+set_default_tpm_path	.tmux/plugins/tpm/tpm	/^set_default_tpm_path() {$/;"	f
+set_key_bindings	.tmux/plugins/tmux-sidebar/sidebar.tmux	/^set_key_bindings() {$/;"	f
+set_tmux_option	.tmux/plugins/tmux-battery/battery.tmux	/^set_tmux_option() {$/;"	f
+set_tmux_option	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^set_tmux_option() {$/;"	f
+set_tmux_option	.tmux/plugins/tmux-spotify/scripts/helpers.sh	/^set_tmux_option() {$/;"	f
+set_tpm_key_bindings	.tmux/plugins/tpm/tpm	/^set_tpm_key_bindings() {$/;"	f
+set_tpm_path	.tmux/plugins/tpm/tpm	/^set_tpm_path() {$/;"	f
+shellesc_cmd	.vim/autoload/plug.vim	/^function! s:shellesc_cmd(arg, script)$/;"	f
+shellesc_ps1	.vim/autoload/plug.vim	/^function! s:shellesc_ps1(arg)$/;"	f
+sidebar_dir	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^sidebar_dir() {$/;"	f
+sidebar_exists	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^sidebar_exists() {$/;"	f
+sidebar_file	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^sidebar_file() {$/;"	f
+sidebar_left	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^sidebar_left() {$/;"	f
+sidebar_pane_args	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^sidebar_pane_args() {$/;"	f
+sidebar_pane_id	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^sidebar_pane_id() {$/;"	f
+sidebar_registration	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^sidebar_registration() {$/;"	f
+silently_source_all_tmux_files	.tmux/plugins/tpm/scripts/source_plugins.sh	/^silently_source_all_tmux_files() {$/;"	f
+size_defined	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^size_defined() {$/;"	f
+snapshot	.vim/autoload/plug.vim	/^function! s:snapshot(force, ...) abort$/;"	f
+source	.vim/autoload/plug.vim	/^function! s:source(from, ...)$/;"	f
+source_plugins	.tmux/plugins/tpm/scripts/source_plugins.sh	/^source_plugins() {$/;"	f
+source_plugins	.tmux/plugins/tpm/tpm	/^source_plugins() {$/;"	f
+spawn	.vim/autoload/plug.vim	/^function! s:spawn(name, cmd, opts)$/;"	f
+split_rtp	.vim/autoload/plug.vim	/^function! s:split_rtp()$/;"	f
+split_sidebar_left	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^split_sidebar_left() {$/;"	f
+split_sidebar_right	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^split_sidebar_right() {$/;"	f
+spotify_status	.tmux/plugins/tmux-spotify/scripts/spotify_status.sh	/^spotify_status() {$/;"	f
+status	.vim/autoload/plug.vim	/^function! s:status()$/;"	f
+status_load	.vim/autoload/plug.vim	/^function! s:status_load(lnum)$/;"	f
+status_update	.vim/autoload/plug.vim	/^function! s:status_update() range$/;"	f
+stored_key_vars	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^stored_key_vars() {$/;"	f
+supported_tmux_version_ok	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^supported_tmux_version_ok() {$/;"	f
+supported_tmux_version_ok	.tmux/plugins/tpm/tpm	/^supported_tmux_version_ok() {$/;"	f
+switch_in	.vim/autoload/plug.vim	/^function! s:switch_in()$/;"	f
+switch_out	.vim/autoload/plug.vim	/^function! s:switch_out(...)$/;"	f
+syntax	.vim/autoload/plug.vim	/^function! s:syntax()$/;"	f
+system	.vim/autoload/plug.vim	/^function! s:system(cmd, ...)$/;"	f
+system_chomp	.vim/autoload/plug.vim	/^function! s:system_chomp(...)$/;"	f
+test_custom_tpm_path	.tmux/plugins/tpm/tests/test_plugin_sourcing.sh	/^test_custom_tpm_path() {$/;"	f
+test_default_tpm_path	.tmux/plugins/tpm/tests/test_plugin_sourcing.sh	/^test_default_tpm_path() {$/;"	f
+test_legacy_and_new_syntax_for_plugin_installation_work_via_script	.tmux/plugins/tpm/tests/test_plugin_installation_legacy.sh	/^test_legacy_and_new_syntax_for_plugin_installation_work_via_script() {$/;"	f
+test_legacy_and_new_syntax_for_plugin_installation_work_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation_legacy.sh	/^test_legacy_and_new_syntax_for_plugin_installation_work_via_tmux_key_binding() {$/;"	f
+test_multiple_plugins_installation_via_script	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_multiple_plugins_installation_via_script() {$/;"	f
+test_multiple_plugins_installation_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_multiple_plugins_installation_via_tmux_key_binding() {$/;"	f
+test_non_existing_plugin_installation_via_script	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_non_existing_plugin_installation_via_script() {$/;"	f
+test_non_existing_plugin_installation_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_non_existing_plugin_installation_via_tmux_key_binding() {$/;"	f
+test_plugin_installation_custom_dir_via_script	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugin_installation_custom_dir_via_script() {$/;"	f
+test_plugin_installation_custom_dir_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugin_installation_custom_dir_via_tmux_key_binding() {$/;"	f
+test_plugin_installation_via_script	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugin_installation_via_script() {$/;"	f
+test_plugin_installation_via_script	.tmux/plugins/tpm/tests/test_plugin_installation_legacy.sh	/^test_plugin_installation_via_script() {$/;"	f
+test_plugin_installation_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugin_installation_via_tmux_key_binding() {$/;"	f
+test_plugin_installation_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation_legacy.sh	/^test_plugin_installation_via_tmux_key_binding() {$/;"	f
+test_plugin_installation_via_tmux_key_binding_set_option	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugin_installation_via_tmux_key_binding_set_option() {$/;"	f
+test_plugin_sourcing	.tmux/plugins/tpm/tests/test_plugin_sourcing.sh	/^test_plugin_sourcing() {$/;"	f
+test_plugin_uninstallation_via_script	.tmux/plugins/tpm/tests/test_plugin_clean.sh	/^test_plugin_uninstallation_via_script() {$/;"	f
+test_plugin_uninstallation_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_clean.sh	/^test_plugin_uninstallation_via_tmux_key_binding() {$/;"	f
+test_plugin_update_via_script	.tmux/plugins/tpm/tests/test_plugin_update.sh	/^test_plugin_update_via_script() {$/;"	f
+test_plugin_update_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_update.sh	/^test_plugin_update_via_tmux_key_binding() {$/;"	f
+test_plugins_installation_from_multiple_sourced_files_via_script	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugins_installation_from_multiple_sourced_files_via_script() {$/;"	f
+test_plugins_installation_from_multiple_sourced_files_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugins_installation_from_multiple_sourced_files_via_tmux_key_binding() {$/;"	f
+test_plugins_installation_from_sourced_file_via_script	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugins_installation_from_sourced_file_via_script() {$/;"	f
+test_plugins_installation_from_sourced_file_via_tmux_key_binding	.tmux/plugins/tpm/tests/test_plugin_installation.sh	/^test_plugins_installation_from_sourced_file_via_tmux_key_binding() {$/;"	f
+test_unsuccessful_plugin_uninstallation_via_script	.tmux/plugins/tpm/tests/test_plugin_clean.sh	/^test_unsuccessful_plugin_uninstallation_via_script() {$/;"	f
+tick	.vim/autoload/plug.vim	/^function! s:tick()$/;"	f
+tmux_echo	.tmux/plugins/tpm/scripts/helpers/tmux_echo_functions.sh	/^tmux_echo() {$/;"	f
+tmux_version_int	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^tmux_version_int() {$/;"	f
+tmux_version_int	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^tmux_version_int() {$/;"	f
+tmux_version_int	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^tmux_version_int() {$/;"	f
+to_a	.vim/autoload/plug.vim	/^function! s:to_a(v)$/;"	f
+to_s	.vim/autoload/plug.vim	/^function! s:to_s(v)$/;"	f
+toggle_sidebar	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^toggle_sidebar() {$/;"	f
+tpm_path	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^tpm_path() {$/;"	f
+tpm_path_set	.tmux/plugins/tpm/tpm	/^tpm_path_set() {$/;"	f
+tpm_plugins_list_helper	.tmux/plugins/tpm/scripts/helpers/plugin_functions.sh	/^tpm_plugins_list_helper() {$/;"	f
+tree_command	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_command() {$/;"	f
+tree_focus_key	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_focus_key() {$/;"	f
+tree_key	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_key() {$/;"	f
+tree_pager	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_pager() {$/;"	f
+tree_position	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_position() {$/;"	f
+tree_user_command	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_user_command() {$/;"	f
+tree_width	.tmux/plugins/tmux-sidebar/scripts/tree_helpers.sh	/^tree_width() {$/;"	f
+trim	.vim/autoload/plug.vim	/^function! s:trim(str)$/;"	f
+unsupported_version_message	.tmux/plugins/tmux-sidebar/scripts/check_tmux_version.sh	/^unsupported_version_message() {$/;"	f
+unsupported_version_message	.tmux/plugins/tpm/scripts/check_tmux_version.sh	/^unsupported_version_message() {$/;"	f
+update	.tmux/plugins/tpm/scripts/update_plugin.sh	/^update() {$/;"	f
+update	.vim/autoload/plug.vim	/^function! s:update(force, names)$/;"	f
+update_all	.tmux/plugins/tpm/scripts/update_plugin.sh	/^update_all() {$/;"	f
+update_finish	.vim/autoload/plug.vim	/^function! s:update_finish()$/;"	f
+update_impl	.vim/autoload/plug.vim	/^function! s:update_impl(pull, force, args) abort$/;"	f
+update_plugin_prompt	.tmux/plugins/tpm/bindings/update_plugins	/^update_plugin_prompt() {$/;"	f
+update_plugins	.tmux/plugins/tpm/scripts/update_plugin.sh	/^update_plugins() {$/;"	f
+update_python	.vim/autoload/plug.vim	/^function! s:update_python()$/;"	f
+update_ruby	.vim/autoload/plug.vim	/^function! s:update_ruby()$/;"	f
+update_status_icon	.tmux/plugins/tmux-spotify/scripts/spotify_status.sh	/^update_status_icon() {$/;"	f
+update_tmux_option	.tmux/plugins/tmux-battery/battery.tmux	/^update_tmux_option() {$/;"	f
+update_tmux_uptime	.tmux/plugins/tmux-spotify/spotify.tmux	/^update_tmux_uptime() {$/;"	f
+update_vim	.vim/autoload/plug.vim	/^function! s:update_vim()$/;"	f
+upgrade	.vim/autoload/plug.vim	/^function! s:upgrade()$/;"	f
+upgrade_specs	.vim/autoload/plug.vim	/^function! s:upgrade_specs()$/;"	f
+upower_battery_remaining_time	.tmux/plugins/tmux-battery/scripts/battery_remain.sh	/^upower_battery_remaining_time() {$/;"	f
+use_inverted_size	.tmux/plugins/tmux-sidebar/scripts/toggle.sh	/^use_inverted_size() {$/;"	f
+verify_tpm_path_permissions	.tmux/plugins/tpm/scripts/install_plugins.sh	/^verify_tpm_path_permissions() {$/;"	f
+version_requirement	.vim/autoload/plug.vim	/^function! s:version_requirement(val, min)$/;"	f
+warn	.vim/autoload/plug.vim	/^function! s:warn(cmd, msg)$/;"	f
+width_from_sidebar_file	.tmux/plugins/tmux-sidebar/scripts/helpers.sh	/^width_from_sidebar_file() {$/;"	f
+with_cd	.vim/autoload/plug.vim	/^function! s:with_cd(cmd, dir, ...)$/;"	f
+wrap_cmds	.vim/autoload/plug.vim	/^  function! s:wrap_cmds(cmds)$/;"	f
