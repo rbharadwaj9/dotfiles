@@ -3,10 +3,11 @@ call plug#begin()
 
 " INSERT ALL PLUGS
 Plug 'vim-airline/vim-airline'
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-dispatch'
 
 " Refactoring with multiple cursors
 Plug 'terryma/vim-multiple-cursors'
@@ -45,7 +46,7 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
 let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['eslint', 'prettier'], 'cpp':['cppcheck', 'oclint']}
-let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format', 'clangtidy'], 'typescript':['tslint','eslint']}
+let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format', 'trim_whitespace', 'clangtidy'], 'typescript':['tslint','eslint']}
 
 " Completor Settings
 let g:completor_node_binary = '/usr/local/bin/node'
@@ -100,8 +101,10 @@ set completeopt=menuone,noselect,preview
 autocmd FileType typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 autocmd FileType html nmap <leader>r :!open %<cr>
 autocmd FileType gitcommit,markdown setlocal spell
-autocmd FileType cpp,h,c set colorcolumn=90 foldmethod=syntax
+autocmd FileType cpp,h,c set colorcolumn=90 foldmethod=syntax foldlevel=1
 " autocmd FileType cpp let w:m2=matchadd('ColorColumn', '\%>80v.\+', 100)
+autocmd BufWritePost *.tex Dispatch! latexmk -pdf main.tex
+autocmd FileType atlas set ft=tasm
 
 " Keybindings
 nnoremap <Space> <Nop>

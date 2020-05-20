@@ -5,9 +5,10 @@ case $- in
 esac
 
 # Aliases
-alias coursework="cd ~/Documents/Coursework/FALL_2019/"
+alias coursework="cd ~/Documents/Coursework/WINTER_2020/"
 alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
 alias work="cd ~/Documents/ITS/"
+alias comp="compile_local"
 alias run='runserver(){
     if test -n "$VIRTUAL_ENV"; then
         python manage.py runserver
@@ -51,7 +52,14 @@ export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS="Exfxcxdxbxegedabagacad"
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || echo "WARNING: Bash Completion is not enabled."
+# Local Compile
+compile_local()
+{
+    echo "g++ -g3 -DDEBUG -std=c++1z -Wall -Werror -Wextra -pedantic "$1" -o $(basename $1 ".cpp").exe"
+    g++ -g3 -DDEBUG -std=c++1z -Wall -Werror -Wextra -pedantic "$1" -o $(basename $1 ".cpp").exe
+}
+
+[ -f /usr/local/etc/profile.d/bash_completion.sh ] && . /usr/local/etc/profile.d/bash_completion.sh || echo "WARNING: Bash Completion is not enabled."
 
 # Coloring inspired by @mathiasbynens's prompt: https://github.com/mathiasbynens/dotfiles
 if tput setaf 1 &> /dev/null; then
@@ -132,4 +140,17 @@ export PS1;
 # Startup scripts
 if [[ -z $TMUX ]] && [[ -z "${SSH_TTY}" ]]; then
     ~/startmux
+fi
+
+if [[ -n $TMUX ]] && [[ "$(pwd)" == "${HOME}" ]]; then
+    sesh=$(tmux display-message -p '#S');
+    if [[ "${sesh}" == "281" ]]; then
+        coursework;
+        cd EECS_281;
+    elif [[ "${sesh}" == "370" ]]; then
+        coursework;
+        cd EECS_370;
+    elif [[ "${sesh}" == "work" ]]; then
+        work;
+    fi
 fi
