@@ -1,7 +1,23 @@
 #!/usr/bin/env bash
 
+source colors.sh
+if [ "$(uname)" = "Darwin" ];
+then
+    read -p "Do you want to install software for mac? (y/n): " yn
+    case $yn in
+        [Yy]* ) ./mac_software_install.sh;;
+        * ) echo "Skipping software installation"
+    esac 
+fi
+
+echo -e "${cyan}Symlinking setup files.${reset}"
 for dotfile in .[A-Za-z]*;
 do
+    if [[ "$dotfile" == *".swp"* ]]
+    then
+        continue
+    fi
+
     echo $dotfile
     if [ $dotfile = ".git" ] || [ $dotfile = ".DS_Store" ];
     then
@@ -9,7 +25,7 @@ do
     else
         if [ -d $dotfile ]
         then
-            echo "$dotfile is a folder"
+            echo "${yellow}${dotfile} is a folder${reset}"
             mkdir ~/$(basename $dotfile)
             ln -s $(pwd)/$dotfile/* ~/$(basename $dotfile)  
         else
@@ -18,13 +34,6 @@ do
         fi
     fi
 done
-
-if [ "$(uname)" = "Darwin" ]
-then
-    cp karabiner.json ~/.config/karabiner/karabiner.json && echo "Karabiner config copied" || echo "Error while copying Karabiner"
-    cp windows-binding.json ~/.config/karabiner/assets/complex_modifications/windows-binding.json && echo "Karabiner Complex Modification copied" || echo "Error while copying complex modification"
-fi
+echo "${green}Symlink creation successful!${reset}"
 
 ln -s $(pwd)/startmux ~/startmux || echo "Error while symlinking tmux startup script"
-
-echo "Symlink creation successful!"
