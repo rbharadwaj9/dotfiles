@@ -31,4 +31,5 @@ if ! [ -f ~/.tmux/plugins/tpm/tpm ];
 then
     echo "${cyan}Installing TPM${reset}"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    echo "${green}Installed TPM successfully. Please use prefix+I command to install plugins.${reset}"
 fi
