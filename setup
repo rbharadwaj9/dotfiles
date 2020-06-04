@@ -8,6 +8,13 @@ then
         [Yy]* ) ./mac_software_install.sh;;
         * ) echo "Skipping software installation"
     esac 
+elif [ "$(uname)" = "Linux" ];
+then
+    read -p "Do you want to install software for Linux? (y/n): " yn
+    case $yn in
+        [Yy]* ) ./linux_software_install.sh;;
+        * ) echo "Skipping software installation"
+    esac 
 fi
 
 echo -e "${cyan}Symlinking setup files.${reset}"

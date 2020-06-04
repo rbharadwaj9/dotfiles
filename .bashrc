@@ -154,3 +154,4 @@ if [[ -n $TMUX ]] && [[ "$(pwd)" == "${HOME}" ]]; then
         work;
     fi
 fi
+source /opt/ros/noetic/setup.bash
