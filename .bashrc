@@ -5,6 +5,7 @@ case $- in
 esac
 
 # Aliases
+alias ros="source ~/catkin_ws/devel/setup.bash"
 alias coursework="cd ~/Documents/Coursework/WINTER_2020/"
 alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
 alias work="cd ~/Documents/ITS/"
@@ -152,6 +153,9 @@ if [[ -n $TMUX ]] && [[ "$(pwd)" == "${HOME}" ]]; then
         cd EECS_370;
     elif [[ "${sesh}" == "work" ]]; then
         work;
+    elif [[ "${sesh}" == "ros" ]]; then
+        ros;
     fi
 fi
+ 
 source /opt/ros/noetic/setup.bash
