@@ -1,3 +1,9 @@
+" Map Leader before installing Plugins. Found this fix from github.com/jbial/dotfiles.
+" Doing this later doesn't work. You need to source vimrc everytime you open
+" it for them to work.
+nnoremap <Space> <Nop>
+let mapleader = " "
+
 " Vim PLUG settings
 call plug#begin()
 
@@ -106,10 +112,6 @@ autocmd FileType cpp,h,c set colorcolumn=90 foldmethod=syntax foldlevel=1
 autocmd BufWritePost *.tex Dispatch! latexmk -pdf main.tex
 autocmd FileType atlas set ft=tasm
 
-" Keybindings
-nnoremap <Space> <Nop>
-let mapleader = " "
-
 " Intuitive line scrolling
 nnoremap <silent> j gj
 nnoremap <silent> k gk
@@ -131,11 +133,6 @@ map q: <Nop>
 nmap <silent> <leader>aj :ALENextWrap<cr>
 nmap <silent> <leader>ak :ALEPreviousWrap<cr>
 nmap <silent> <leader>aa :ALEFix<cr>
-
-" nmap <silent> <C-l> <C-w><C-l><cr>
-" nmap <silent> <C-k> <C-w><C-k><cr>
-" nmap <silent> <C-j> <C-w><C-j><cr>
-" nmap <silent> <C-h> <C-w><C-h><cr>
 
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
