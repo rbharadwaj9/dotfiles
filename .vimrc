@@ -101,6 +101,7 @@ set foldmethod=indent
 set nofoldenable
 set showcmd
 set completeopt=menuone,noselect,preview
+set relativenumber
 " highlight ColorColumn ctermbg=magenta 
 
 " Autocmds.
