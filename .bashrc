@@ -7,7 +7,7 @@ esac
 # Aliases
 alias coursework="cd ~/Documents/Coursework/WINTER_2020/"
 alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
-alias work="cd ~/Documents/ITS/"
+alias work="cd ~/Documents/its_work/"
 alias comp="compile_local"
 alias run='runserver(){
     if test -n "$VIRTUAL_ENV"; then

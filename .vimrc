@@ -42,6 +42,9 @@ Plug 'leafgarland/typescript-vim'
 " C++
 Plug 'rbharadwaj9/a.vim'
 
+"
+Plug 'vim-latex/vim-latex'
+
 " Initialize plugin system
 call plug#end()
 
@@ -60,6 +63,8 @@ let g:completor_node_binary = '/usr/local/bin/node'
 noremap <silent> <leader>c :call completor#do('doc')<CR>
 noremap <silent> <leader>d :call completor#do('definition')<CR>
 noremap <silent> <leader>s :call completor#do('hover')<CR>
+
+let g:tex_flavor='pdflatex'
 
 
 " Airline Settings
@@ -80,7 +85,7 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-nmap <leader>z :tabedit %<CR>:set nonumber<CR>:set signcolumn=no<CR>"
+nmap <leader>z :tabedit %<CR>:set nonumber norelativenumber<CR>:set signcolumn=no<CR>"
 
 " Other stuff personalized settings
 set number
