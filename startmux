@@ -18,7 +18,7 @@ then
 elif [[ "$input" -eq "0" ]]
 then
     read -p "Name your session: " name
-    tmux new -s $name
+    tmux -u new -s $name
 else
     if [[ -n ${sessions[${input}]} ]]
     then

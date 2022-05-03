@@ -5,9 +5,8 @@ case $- in
 esac
 
 # Aliases
-alias coursework="cd ~/Documents/Coursework/WINTER_2020/"
+alias coursework="cd ~/Documents/Coursework/WN_2022/"
 alias projects="source /Users/rbharadwaj/Documents/Python/projects/bin/activate"
-alias work="cd ~/Documents/its_work/"
 alias comp="compile_local"
 alias run='runserver(){
     if test -n "$VIRTUAL_ENV"; then
@@ -55,7 +54,7 @@ export LSCOLORS="Exfxcxdxbxegedabagacad"
 # Local Compile
 compile_local()
 {
-    echo "g++ -g3 -DDEBUG -std=c++1z -Wall -Werror -Wextra -pedantic "$1" -o $(basename $1 ".cpp").exe"
+    echo "g++ -g3 -DDEBUG -std=c++17 -Wall -Werror -Wextra -pedantic "$1" -o $(basename $1 ".cpp").exe"
     g++ -g3 -DDEBUG -std=c++1z -Wall -Werror -Wextra -pedantic "$1" -o $(basename $1 ".cpp").exe
 }
 
@@ -136,6 +135,7 @@ PS1+="\[\$(parse_git_dirty)\]"
 PS1+="\$(parse_git_branch)"
 PS1+="\[${reset}\]\$ " # $ character (and white)
 export PS1;
+export LANG="en_US.UTF-8"
 
 # Startup scripts
 if [[ -z $TMUX ]] && [[ -z "${SSH_TTY}" ]]; then
@@ -144,13 +144,18 @@ fi
 
 if [[ -n $TMUX ]] && [[ "$(pwd)" == "${HOME}" ]]; then
     sesh=$(tmux display-message -p '#S');
-    if [[ "${sesh}" == "281" ]]; then
+    if [[ "${sesh}" == "482" ]]; then
         coursework;
-        cd EECS_281;
-    elif [[ "${sesh}" == "370" ]]; then
+        cd eecs_482;
+    elif [[ "${sesh}" == "461" ]]; then
         coursework;
-        cd EECS_370;
+        cd eecs_461;
     elif [[ "${sesh}" == "work" ]]; then
         work;
     fi
 fi
+export OPENSSL_ROOT_DIR=/usr/local/opt/openssl@3
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
