@@ -27,6 +27,8 @@ then
     brew install tmux
 fi
 
+brew install fzf
+
 if ! [ -f ~/.tmux/plugins/tpm/tpm ];
 then
     echo "${cyan}Installing TPM${reset}"

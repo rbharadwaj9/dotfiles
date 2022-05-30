@@ -1,0 +1,15 @@
+# Tags
+tags
+
+# DS Store
+.DS_Store
+
+# Swap Files
+*.swp
+*.swo
+
+# Clang Cache
+.cache
+
+# Direnv 
+.envrc

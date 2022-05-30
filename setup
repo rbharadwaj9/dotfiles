@@ -44,3 +44,6 @@ done
 echo "${green}Symlink creation successful!${reset}"
 
 ln -s $(pwd)/startmux ~/startmux || echo "Error while symlinking tmux startup script"
+
+rm ~/.zshrc
+ln -s $(pwd)/.zshrc ~/.zshrc || echo "Error while symlinking .zshrc"
