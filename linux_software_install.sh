@@ -38,4 +38,4 @@ then
     echo "${green}Installed Oh My ZSH successfully.${reset}"
 fi
 
-sudo apt install -y fzf
+sudo apt install -y fzf bat ripgrep

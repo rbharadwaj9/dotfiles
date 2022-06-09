@@ -44,6 +44,9 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" ROS
+Plug 'taketwo/vim-ros'
+
 " Bracket Completion
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -385,6 +388,7 @@ autocmd FileType cpp,hpp,h,c nnoremap <leader>AV :vsplit<cr> :CocCommand clangd.
 
 " fzf files
 nnoremap <leader>f :Files<cr>
+nnoremap <leader>l :Rg<cr>
 
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
