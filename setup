@@ -47,3 +47,5 @@ ln -s $(pwd)/startmux ~/startmux || echo "Error while symlinking tmux startup sc
 
 rm ~/.zshrc
 ln -s $(pwd)/.zshrc ~/.zshrc || echo "Error while symlinking .zshrc"
+
+git config --global core.excludesfile ~/.gitignore_global
