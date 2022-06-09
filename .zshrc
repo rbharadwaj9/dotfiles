@@ -162,6 +162,10 @@ fi
 eval "$(direnv hook zsh)"
 
 # ROS Noetic
-source /opt/ros/noetic/setup.zsh
+if [ -f /opt/ros/noetic/setup.zsh ]
+then
+  source /opt/ros/noetic/setup.zsh
+  alias catkin_debug="catkin_make -DCMAKE_BUILD_TYPE=Debug"
+fi
 
-alias rs="source ${ROS_DEVEL_SOURCE}" # Variable must be set in .envrc through direnv
+alias rs='source ${ROS_DEVEL_SOURCE}' # Variable must be set in .envrc through direnv

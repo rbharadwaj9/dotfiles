@@ -15,6 +15,9 @@ Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tpope/vim-dispatch'
 
+" Easy Align
+Plug 'junegunn/vim-easy-align'
+
 " Fuzzy Finding
 Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
@@ -30,6 +33,9 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Linter
 Plug 'dense-analysis/ale'
+
+" Doxygen Documentation
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " Code Completion
 " Plug 'maralla/completor.vim'
@@ -222,6 +228,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
 " }}}
 
 " Completor Settings {{{
@@ -328,6 +335,11 @@ augroup END
 augroup syntax
   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
 augroup END
+
+augroup markdown
+  " Align Markdown Tables
+  autocmd FileType markdown vmap <Leader><Bar> :EasyAlign*<Bar><Enter>
+augroup END
 " }}}
 
 " goyo.vim for Reading/Writing Mode {{{
@@ -367,5 +379,17 @@ nnoremap <silent> <leader>aj :ALENextWrap<cr>
 nnoremap <silent> <leader>ak :ALEPreviousWrap<cr>
 nnoremap <silent> <leader>aa :ALEFix<cr>
 
+" A.vim equivalent with Coc.nvim TODO: CocRequest('clangd',
+" 'textDocument/switchSourceHeader', {'uri': 'file://'.expand("%:p")})
+autocmd FileType cpp,hpp,h,c nnoremap <leader>AV :vsplit<cr> :CocCommand clangd.switchSourceHeader<cr>
+
+" fzf files
+nnoremap <leader>f :Files<cr>
+
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+" Catkin Make within a shell
+function CatkinMake()
+    vert term shell -c "echo $CATKIN_WS_ROOT && cd $CATKIN_WS_ROOT && ls" 
+endfunction
