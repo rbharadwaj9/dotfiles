@@ -104,7 +104,7 @@ export LC_ALL="en_US.UTF-8"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 else
-  export EDITOR='nvim'
+  export EDITOR='nvim' # TODO: Move to NVIM
 fi
 
 # Compilation flags
