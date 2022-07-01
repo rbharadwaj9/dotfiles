@@ -41,23 +41,29 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 " Plug 'maralla/completor.vim'
 " Plug 'maralla/completor-typescript'
 
+if has('nvim')
+  Plug 'nvim-treesitter/nvim-treesitter'
+endif
+
 " COC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ROS
-Plug 'taketwo/vim-ros'
+" Plug 'taketwo/vim-ros'
 
 " Bracket Completion
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 
 " Syntax Related Plugins
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'cespare/vim-toml'
+" Plug 'Glench/Vim-Jinja2-Syntax'
+" Plug 'cespare/vim-toml'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'pangloss/vim-javascript'
-Plug 'ap/vim-css-color'
-Plug 'mechatroner/rainbow_csv'
+" Plug 'pangloss/vim-javascript'
+" Plug 'ap/vim-css-color'
+" Plug 'mechatroner/rainbow_csv'
+
+Plug 'sheerun/vim-polyglot'
 
 " Typescript
 Plug 'leafgarland/typescript-vim'
@@ -120,7 +126,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <leader><leader>p coc#refresh()
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -148,6 +154,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" Quickfix List
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -367,6 +377,9 @@ nnoremap <silent> k gk
 " make Y consistent with C and D.
 nnoremap Y y$
 
+" Yank selection and also comment the lines
+nnoremap <leader>yc
+
 " Insert empty line
 nmap <leader>o m`o<ESC>``
 nmap <leader>O m`O<ESC>``
@@ -388,6 +401,7 @@ autocmd FileType cpp,hpp,h,c nnoremap <leader>AV :vsplit<cr> :CocCommand clangd.
 
 " fzf files
 nnoremap <leader>f :Files<cr>
+nnoremap <leader>gf :GitFiles<cr>
 nnoremap <leader>l :Rg<cr>
 
 " Replace word under cursor
