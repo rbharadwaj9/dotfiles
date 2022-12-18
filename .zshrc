@@ -100,7 +100,7 @@ export LC_ALL="en_US.UTF-8"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim' # TODO: Move to NVIM
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -169,3 +169,16 @@ then
 fi
 
 alias rs='source ${ROS_DEVEL_SOURCE}' # Variable must be set in .envrc through direnv
+
+# Neovim
+if [ -d "${HOME}/neovim/bin" ]
+then
+  export PATH="${HOME}/neovim/bin:${PATH}"
+fi
+
+if [ -d "/usr/local/lib/node_modules" ]
+then
+  export PATH="/usr/local/lib/node_modules/:${PATH}"
+fi
+
+alias vim="nvim"

@@ -27,8 +27,13 @@ Plug 'junegunn/fzf.vim'
 
 " Nvim specific
 if has('nvim')
+  " Mason for ease of use with external tooling
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+
   " LSP
   Plug 'neovim/nvim-lspconfig'
+  Plug 'mfussenegger/nvim-jdtls' " Java
 
   " Completion
   Plug 'hrsh7th/nvim-cmp'
@@ -39,11 +44,20 @@ if has('nvim')
   " LuaSnip
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
+
+  "Treesitter
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
+
+  Plug 'j-hui/fidget.nvim'
+
+
 endif
 
 " Themes
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/edge'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'nlknguyen/papercolor-theme'
+Plug 'dunstontc/vim-vscode-theme'
 
 " " Linter
 " Plug 'dense-analysis/ale'
@@ -80,7 +94,9 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " Initialize plugin system
 call plug#end() " }}}
 
-lua require('lsp')
+if has('nvim')
+    lua require('init')
+endif
 
 " " ALE Configuration {{{
 
@@ -138,13 +154,16 @@ set nofoldenable
 set showcmd
 set completeopt=menuone,noselect,preview
 set relativenumber
+set nohlsearch
 
 set statusline+=%{gutentags#statusline()}
 
-" let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-" let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-let &t_8f = "[38;2;%lu;%lu;%lum"
-let &t_8b = "[48;2;%lu;%lu;%lum"
+let g:gutentags_enabled = 0
+
+" " let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+" " let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+" let &t_8f = "[38;2;%lu;%lu;%lum"
+" let &t_8b = "[48;2;%lu;%lu;%lum"
 set termguicolors
 
 " if exists("$TMUX")
@@ -155,18 +174,8 @@ set termguicolors
 
 " colo molokai
 
-" The configuration options should be placed before `colorscheme edge`. {{{
-" let g:edge_style = 'aura'
-" let g:edge_disable_italic_comment = 1
-" let g:edge_cursor = 'blue'
-" let g:edge_lightline_disable_bold = 1
-" let g:edge_better_performance = 1
 " set background=dark
-" colorscheme edge
-" }}}
-set background=dark
-let g:gruvbox_invert_selection=0
-colorscheme gruvbox
+colorscheme dark_plus
 
 " Autocommands {{{
 augroup file_types
@@ -248,3 +257,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 " function CatkinMake()
 "     vert term shell -c "echo $CATKIN_WS_ROOT && cd $CATKIN_WS_ROOT && ls" 
 " endfunction
+
+
+" The line beneath this is called `modeline`. See `:help modeline`
+" vim: ts=2 sts=2 sw=2 et

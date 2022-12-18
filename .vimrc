@@ -129,6 +129,8 @@ let &t_8f = "[38;2;%lu;%lu;%lum"
 let &t_8b = "[48;2;%lu;%lu;%lum"
 set termguicolors
 
+let g:gutentags_enabled = 0
+
 " if exists("$TMUX")
 "   set t_Co=256
 "   set notermguicolors
