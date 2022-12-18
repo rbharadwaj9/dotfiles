@@ -58,6 +58,7 @@ endif
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nlknguyen/papercolor-theme'
 Plug 'dunstontc/vim-vscode-theme'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " " Linter
 " Plug 'dense-analysis/ale'
@@ -155,6 +156,9 @@ set showcmd
 set completeopt=menuone,noselect,preview
 set relativenumber
 set nohlsearch
+
+" Disable Mouse
+set mouse=
 
 set statusline+=%{gutentags#statusline()}
 
