@@ -57,7 +57,7 @@ endif
 " Themes
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nlknguyen/papercolor-theme'
-Plug 'dunstontc/vim-vscode-theme'
+Plug 'rbharadwaj9/vim-vscode-theme'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " " Linter
