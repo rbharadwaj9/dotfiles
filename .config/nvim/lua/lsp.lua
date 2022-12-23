@@ -1,10 +1,12 @@
 -- Native LSP Setup
--- This file aims to configure everything that nvim needs to connect and provide 
--- information as an LSP client. 
+-- This file aims to configure everything that nvim needs to connect and provide
+-- information as an LSP client.
 --
--- The user will still be required to install the appropriate Language Server 
+-- The user will still be required to install the appropriate Language Server
 -- on their own. See https://langserver.org
 local rval = {}
+
+local home = os.getenv("HOME")
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>ak', vim.diagnostic.goto_prev)
@@ -79,28 +81,37 @@ end
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' }
+local servers = {
+  mason = { 'clangd', 'pyright', 'tsserver', 'sumneko_lua', },
+  other = { 'solargraph' },
+}
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
-  ensure_installed = servers,
+  ensure_installed = servers.mason,
 }
+
 
 -- nvim-cmp supports additional completion capabilities
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local capabilities = require('completion')
 
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    -- Gets run inside every buffer that gets attached
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+local enable_lsp = function(serv_list)
+  for _, lsp in ipairs(serv_list) do
+    require('lspconfig')[lsp].setup {
+      -- Gets run inside every buffer that gets attached
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
+enable_lsp(servers.mason)
+-- enable_lsp(servers.other)
+
 -- Turn on lsp status information
-require('fidget').setup{}
+require('fidget').setup {}
 
 -- Example custom configuration for lua
 --
@@ -127,6 +138,15 @@ require('lspconfig').sumneko_lua.setup {
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },
     },
+  },
+}
+
+require('lspconfig').solargraph.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {
+    vim.fn.glob(home .. "/.rbenv/versions/*/bin/solargraph"),
+    "stdio", -- Found from default configuration of coc-solargraph
   },
 }
 

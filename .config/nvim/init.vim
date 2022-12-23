@@ -110,6 +110,19 @@ endif
 
 " " }}}
 
+" FZF Config {{{
+" Use Ag to exclude gitignore files in fuzzy search
+if executable("ag")
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+endif
+
+" Autocommands
+
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>gf :GitFiles<cr>
+nnoremap <leader>l :Rg<cr>
+" }}}
+
 let g:tex_flavor='pdflatex'
 
 " let g:ctrlp_custom_ignore = {
