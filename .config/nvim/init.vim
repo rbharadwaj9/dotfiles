@@ -34,6 +34,7 @@ if has('nvim')
   " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls' " Java
+  Plug 'j-hui/fidget.nvim' " Showing LSP status in the bottom right
 
   " Completion
   Plug 'hrsh7th/nvim-cmp'
@@ -49,9 +50,8 @@ if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
 
-  Plug 'j-hui/fidget.nvim'
-
-
+  " Tree
+  Plug 'nvim-tree/nvim-tree.lua'
 endif
 
 " Themes
@@ -226,7 +226,7 @@ augroup END
 augroup GoyoCallbacks
   autocmd! User GoyoEnter Limelight
   autocmd! User GoyoLeave Limelight!
-augroup END 
+augroup END
 
 let g:goyo_height = 100
 let g:goyo_width = 100
@@ -272,7 +272,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " " Catkin Make within a shell
 " function CatkinMake()
-"     vert term shell -c "echo $CATKIN_WS_ROOT && cd $CATKIN_WS_ROOT && ls" 
+"     vert term shell -c "echo $CATKIN_WS_ROOT && cd $CATKIN_WS_ROOT && ls"
 " endfunction
 
 
