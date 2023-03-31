@@ -27,6 +27,9 @@ Plug 'junegunn/fzf.vim'
 
 " Nvim specific
 if has('nvim')
+
+  Plug 'nvim-lua/plenary.nvim'
+
   " Mason for ease of use with external tooling
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
@@ -35,6 +38,7 @@ if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls' " Java
   Plug 'j-hui/fidget.nvim' " Showing LSP status in the bottom right
+  Plug 'wiliamks/nice-reference.nvim' " Fetching LSP References
 
   " Completion
   Plug 'hrsh7th/nvim-cmp'
@@ -46,12 +50,18 @@ if has('nvim')
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
 
-  "Treesitter
+  " Treesitter
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
 
+  " Telescope
+  Plug 'nvim-telescope/telescope.nvim'
+
   " Tree
   Plug 'nvim-tree/nvim-tree.lua'
+
+  " Code Context
+  Plug 'SmiteshP/nvim-navic'
 endif
 
 " Themes
@@ -173,7 +183,7 @@ set nohlsearch
 " Disable Mouse
 set mouse=
 
-set statusline+=%{gutentags#statusline()}
+" set statusline+=%{gutentags#statusline()}
 
 let g:gutentags_enabled = 0
 
