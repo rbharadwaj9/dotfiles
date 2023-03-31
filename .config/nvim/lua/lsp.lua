@@ -14,7 +14,27 @@ vim.keymap.set('n', '<leader>aj', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
-local on_attach = function(_, buffnr)
+-- LSP References Plugin
+require 'nice-reference'.setup({
+    anchor = "NW", -- Popup position anchor
+    relative = "cursor", -- Popup relative position
+    row = 1, -- Popup x position
+    col = 0, -- Popup y position
+    border = "rounded", -- Popup borderstyle
+    winblend = 0, -- Popup transaparency 0-100, where 100 is transparent
+    max_width = 120, -- Max width of the popup
+    max_height = 10, -- Max height of the popup
+    auto_choose = false, -- Go to reference if there is only one
+})
+
+-- Code Context Plugin
+local navic = require('nvim-navic')
+
+local on_attach = function(client, buffnr)
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, buffnr)
+  end
 
   local nmap = function(keys, func, desc)
     if desc then
@@ -26,6 +46,7 @@ local on_attach = function(_, buffnr)
   nmap("gd", vim.lsp.buf.definition, "[G]oto [D]ocumentation")
   nmap("gt", vim.lsp.buf.type_definition, "[G]oto [T]ype Definition")
   nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+  nmap("gr", require ('nice-reference').references, "[G]oto [R]erferences")
 
   -- Documentation Reference --
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -82,7 +103,7 @@ end
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 local servers = {
-  mason = { 'clangd', 'pyright', 'tsserver', 'sumneko_lua', },
+  mason = { 'clangd', 'pyright', 'tsserver', 'sumneko_lua'},
   other = { 'solargraph' },
 }
 
