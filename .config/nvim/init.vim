@@ -8,27 +8,22 @@ let mapleader = " "
 call plug#begin()
 
 " INSERT ALL PLUGS
-Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
 
-" Async Makefile make build
-Plug 'tpope/vim-dispatch'
-
-" Easy Align
-Plug 'junegunn/vim-easy-align'
-
-" Fuzzy Finding
-" Plug 'kien/ctrlp.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-Plug 'junegunn/fzf.vim'
-
 " Nvim specific
 if has('nvim')
 
   Plug 'nvim-lua/plenary.nvim'
+
+  " Statusline
+  Plug 'nvim-lualine/lualine.nvim'
+  Plug 'akinsho/bufferline.nvim'
+
+  " Winbar
+  Plug 'fgheng/winbar.nvim'
 
   " Mason for ease of use with external tooling
   Plug 'williamboman/mason.nvim'
@@ -56,22 +51,40 @@ if has('nvim')
 
   " Telescope
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   " Tree
   Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'nvim-tree/nvim-web-devicons'
 
   " Code Context
   Plug 'SmiteshP/nvim-navic'
+
+else
+  " Only for Vim
+  Plug 'vim-airline/vim-airline'
+
+  " Fuzzy Finding
+  " Plug 'kien/ctrlp.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+  Plug 'junegunn/fzf.vim'
+
 endif
+
+" Common between Nvim and Vim
 
 " Themes
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nlknguyen/papercolor-theme'
 Plug 'rbharadwaj9/vim-vscode-theme'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'rebelot/kanagawa.nvim'
 
-" " Linter
-" Plug 'dense-analysis/ale'
+" Async Makefile make build
+Plug 'tpope/vim-dispatch'
+
+" Easy Align
+Plug 'junegunn/vim-easy-align'
 
 " Doxygen Documentation
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -109,16 +122,8 @@ if has('nvim')
     lua require('init')
 endif
 
-" " ALE Configuration {{{
-
-" " Update linting when exiting insert mode
-" let g:ale_lint_on_text_changed = 'normal'
-" let g:ale_lint_on_insert_leave = 1
-
-" let g:ale_linter = {'python':['flake8', 'autopep8'], 'javascript':['xo', 'eslint', 'prettier'], 'cpp':['ccls', 'cppcheck', 'oclint']}
-" let g:ale_fixers = {'python':['autopep8', 'trim_whitespace', 'isort'], 'html':['tidy'], 'cpp':['clang-format', 'trim_whitespace', 'clangtidy'], 'typescript':['tslint','eslint'], 'javascript':['xo','eslint', 'prettier']}
-
-" " }}}
+" Vim Specific Settings
+if !has('nvim')
 
 " FZF Config {{{
 " Use Ag to exclude gitignore files in fuzzy search
@@ -126,19 +131,14 @@ if executable("ag")
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
-" Autocommands
-
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>gf :GitFiles<cr>
 nnoremap <leader>l :Rg<cr>
-" }}}
-
-let g:tex_flavor='pdflatex'
-
 " let g:ctrlp_custom_ignore = {
 "       \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
 "       \ 'file': '\.so$\|\.dat$|\.DS_Store$'
 "       \ }
+" }}}
 
 " Airline Settings {{{
 let g:airline#extensions#branch#enabled=1
@@ -158,6 +158,10 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 " }}}
+
+endif
+
+let g:tex_flavor='pdflatex'
 
 " Other stuff personalized settings
 set number
@@ -187,22 +191,9 @@ set mouse=
 
 let g:gutentags_enabled = 0
 
-" " let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-" " let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
-" let &t_8f = "[38;2;%lu;%lu;%lum"
-" let &t_8b = "[48;2;%lu;%lu;%lum"
 set termguicolors
 
-" if exists("$TMUX")
-"   set t_Co=256
-"   set notermguicolors
-" else
-" endif
-
-" colo molokai
-
-" set background=dark
-colorscheme dark_plus
+colorscheme kanagawa
 
 " Autocommands {{{
 augroup file_types
@@ -264,26 +255,8 @@ nnoremap <Leader>p pg`[1v
 " " Disable Command Line history mode.
 " map q: <Nop>
 
-" " ALE specific mappings
-" nnoremap <silent> <leader>aj :ALENextWrap<cr>
-" nnoremap <silent> <leader>ak :ALEPreviousWrap<cr>
-" nnoremap <silent> <leader>aa :ALEFix<cr>
-
-" A.vim equivalent with Coc.nvim TODO: CocRequest('clangd',
-" 'textDocument/switchSourceHeader', {'uri': 'file://'.expand("%:p")})
-autocmd FileType cpp,hpp,h,c nnoremap <leader>AV :vsplit<cr> :CocCommand clangd.switchSourceHeader<cr>
-
-" fzf files
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>l :Rg<cr>
-
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-" " Catkin Make within a shell
-" function CatkinMake()
-"     vert term shell -c "echo $CATKIN_WS_ROOT && cd $CATKIN_WS_ROOT && ls"
-" endfunction
 
 
 " The line beneath this is called `modeline`. See `:help modeline`
