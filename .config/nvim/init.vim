@@ -60,6 +60,14 @@ if has('nvim')
   " Code Context
   Plug 'SmiteshP/nvim-navic'
 
+  " Oil Nvim
+  Plug 'stevearc/oil.nvim'
+
+  " Debugging
+  Plug 'mfussenegger/nvim-dap-python' " Python uses debugpy from Mason
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'theHamsta/nvim-dap-virtual-text'
+
 else
   " Only for Vim
   Plug 'vim-airline/vim-airline'

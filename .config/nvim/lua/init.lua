@@ -7,7 +7,43 @@ require('lualine').setup({
     },
 })
 
-require("bufferline").setup{}
+-- Bufferline
+local bufferline = require("bufferline")
+bufferline.setup({
+    options = {
+        mode = "tabs",
+        diagnostics = "nvim_lsp",
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = "File Explorer",
+                text_align = "center",
+                highlight = "Directory",
+                separator = true
+            }
+        },
+        hover = {
+            enabled = false,
+        },
+        separator_style = "thin",
+        show_buffer_close_icons = false,
+        show_tab_indicators = false,
+        style_preset = {},
+        show_duplicate_prefix = false, -- whether to show duplicate buffer prefix
+        numbers = "ordinal"
+    }
+})
+
+vim.keymap.set('n', "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>")
+vim.keymap.set('n', "<leader>2", "<cmd>BufferLineGoToBuffer 2<cr>")
+vim.keymap.set('n', "<leader>3", "<cmd>BufferLineGoToBuffer 3<cr>")
+vim.keymap.set('n', "<leader>4", "<cmd>BufferLineGoToBuffer 4<cr>")
+vim.keymap.set('n', "<leader>5", "<cmd>BufferLineGoToBuffer 5<cr>")
+vim.keymap.set('n', "<leader>6", "<cmd>BufferLineGoToBuffer 6<cr>")
+vim.keymap.set('n', "<leader>7", "<cmd>BufferLineGoToBuffer 7<cr>")
+vim.keymap.set('n', "<leader>8", "<cmd>BufferLineGoToBuffer 8<cr>")
+vim.keymap.set('n', "<leader>9", "<cmd>BufferLineGoToBuffer 9<cr>")
+vim.keymap.set('n', "<leader>$", "<cmd>BufferLineGoToBuffer -1<cr>")
 
 require('winbar').setup({
     enabled = true,
@@ -50,6 +86,12 @@ require('mason').setup()
 
 -- Setup LSP and Completion (done inside LSP)
 require 'lsp'
+
+-- Setup DAP
+require 'dap_config'
+
+-- Oil for file manager
+require("oil").setup()
 
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1

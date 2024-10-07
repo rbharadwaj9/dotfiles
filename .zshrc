@@ -116,6 +116,13 @@ alias vi='vim'
 alias diff='colordiff'
 alias ll="ls -lahG"
 
+# Dev Container Aliases
+# alias devc='devcFn(){
+# devcontainer --workspace-folder .
+# }'
+alias devcup='devcontainer up --workspace-folder .'
+alias devcsh='devcontainer exec --workspace-folder . zsh'
+
 alias mkdir="mkdir -p"
 alias mkcd='mkcd(){
 mkdir -p "$1"
@@ -179,6 +186,11 @@ fi
 if [ -d "/usr/local/lib/node_modules" ]
 then
   export PATH="/usr/local/lib/node_modules/:${PATH}"
+fi
+
+if [ -d "/usr/local/opt/nvm" ]
+then
+  source /usr/local/opt/nvm/nvm.sh
 fi
 
 alias vim="nvim"

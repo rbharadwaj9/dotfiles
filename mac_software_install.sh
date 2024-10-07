@@ -34,6 +34,12 @@ then
     echo "${green}Installed TPM successfully. Please use prefix+I command to install plugins.${reset}"
 fi
 
+if [ $(brew list --versions nvm; echo $?) -ne "0" ]
+then
+    echo "${cyan}Installing NVM${reset}"
+    brew install nvm
+fi
+
 if ! [ -d $HOME/.oh-my-zsh ];
 then
     echo "${cyan}Installing Oh My ZSH${reset}"

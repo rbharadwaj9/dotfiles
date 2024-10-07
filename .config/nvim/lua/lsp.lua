@@ -103,7 +103,7 @@ end
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 local servers = {
-  mason = { 'clangd', 'pyright', 'tsserver', 'lua_ls'},
+  mason = { 'clangd', 'pyright', 'ts_ls', 'lua_ls', 'lemminx'},
   other = { 'solargraph' },
 }
 
@@ -162,14 +162,14 @@ require('lspconfig').lua_ls.setup {
   },
 }
 
-require('lspconfig').solargraph.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {
-    vim.fn.glob(home .. "/.rbenv/versions/*/bin/solargraph"),
-    "stdio", -- Found from default configuration of coc-solargraph
-  },
-}
+-- require('lspconfig').solargraph.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = {
+--     vim.fn.glob(home .. "/.rbenv/versions/*/bin/solargraph"),
+--     "stdio", -- Found from default configuration of coc-solargraph
+--   },
+-- }
 
 rval.on_attach = on_attach
 
