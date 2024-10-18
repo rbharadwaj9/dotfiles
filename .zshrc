@@ -84,9 +84,13 @@ plugins=(
   zsh-autosuggestions
   colored-man-pages
   docker
+  zsh-lazyload
 )
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -Uz compinit
+compinit -C
 
 # User configuration
 
@@ -141,41 +145,17 @@ if [ -f '/Users/rbharadwaj/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/rbharadwaj/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rbharadwaj/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# ROS Config
+if [ -d "$HOME/.config/ros" ]; then
+  source ${HOME}/.config/ros/init.sh
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#
-# Startup scripts
-# if [[ -z $TMUX ]] && [[ -z "${SSH_TTY}" ]]; then
-#     ~/startmux
-# fi
-
-if [[ -n $TMUX ]] && [[ "$(pwd)" == "${HOME}" ]]; then
-  sesh=$(tmux display-message -p '#S');
-  if [[ "${sesh}" == "482" ]]; then
-    coursework;
-    cd eecs_482;
-  elif [[ "${sesh}" == "461" ]]; then
-    coursework;
-    cd eecs_461;
-  elif [[ "${sesh}" == "work" ]]; then
-    work;
-  fi
-fi
 
 # Direnv
 eval "$(direnv hook zsh)"
 
-# ROS Noetic
-if [ -f /opt/ros/noetic/setup.zsh ]
-then
-  source /opt/ros/noetic/setup.zsh
-  alias catkin_debug="catkin_make -DCMAKE_BUILD_TYPE=Debug"
-fi
-
-alias rs='source ${ROS_DEVEL_SOURCE}' # Variable must be set in .envrc through direnv
 
 # Neovim
 if [ -d "${HOME}/neovim/bin" ]
@@ -188,9 +168,7 @@ then
   export PATH="/usr/local/lib/node_modules/:${PATH}"
 fi
 
-if [ -d "/usr/local/opt/nvm" ]
-then
-  source /usr/local/opt/nvm/nvm.sh
-fi
-
 alias vim="nvim"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+lazyload nvm -- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
