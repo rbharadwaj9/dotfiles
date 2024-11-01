@@ -29,6 +29,9 @@ if has('nvim')
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
 
+  " Formatting
+  Plug 'mhartington/formatter.nvim'
+
   " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls' " Java

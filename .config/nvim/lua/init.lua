@@ -87,6 +87,9 @@ require('mason').setup()
 -- Setup LSP and Completion (done inside LSP)
 require 'lsp'
 
+-- Setup Formatter
+require 'formatter_config'
+
 -- Setup DAP
 require 'dap_config'
 

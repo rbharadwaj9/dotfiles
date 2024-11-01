@@ -13,6 +13,8 @@ vim.keymap.set('n', '<leader>ak', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<leader>aj', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>ad', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
+-- vim.keymap.set('n', '<leader>ad', vim.diagnostic.setloclist)
 
 -- LSP References Plugin
 require 'nice-reference'.setup({
@@ -76,6 +78,7 @@ local on_attach = function(client, buffnr)
       vim.lsp.buf.format()
     elseif vim.lsp.buf.formatting then
       vim.lsp.buf.formatting()
+    -- elseif vim.
     end
   end, { desc = 'Format current buffer with LSP' })
 end
