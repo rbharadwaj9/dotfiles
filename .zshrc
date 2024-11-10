@@ -163,12 +163,5 @@ then
   export PATH="${HOME}/neovim/bin:${PATH}"
 fi
 
-if [ -d "/usr/local/lib/node_modules" ]
-then
-  export PATH="/usr/local/lib/node_modules/:${PATH}"
-fi
-
-alias vim="nvim"
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-lazyload nvm -- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+alias rs='source ${ROS_DEVEL_SOURCE}' # Variable must be set in .envrc through direnv
+alias rosgdb='rosrun --prefix "gdb --args"'
