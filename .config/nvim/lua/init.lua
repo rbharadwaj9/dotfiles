@@ -100,6 +100,11 @@ require("oil").setup()
 -- vim.g.loaded_netrwPlugin = 1
 -- Setup nvim-tree
 require("nvim-tree").setup({
+    filters = {
+        dotfiles = false,
+        git_ignored = false,
+        custom = { 'node_modules', '__pycache__' },
+    },
     renderer = {
         group_empty = true,
     },

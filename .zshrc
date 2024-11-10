@@ -163,6 +163,12 @@ then
   export PATH="${HOME}/neovim/bin:${PATH}"
 fi
 
+# Local Binaries
+if [ -d "${HOME}/.local/bin" ]
+then
+  export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 if [ -d "/usr/local/lib/node_modules" ]
 then
   export PATH="/usr/local/lib/node_modules/:${PATH}"
