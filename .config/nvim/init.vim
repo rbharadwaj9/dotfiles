@@ -129,46 +129,42 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " Initialize plugin system
 call plug#end() " }}}
 
-if has('nvim')
-    lua require('init')
-endif
-
 " Vim Specific Settings
 if !has('nvim')
 
-" FZF Config {{{
-" Use Ag to exclude gitignore files in fuzzy search
-if executable("ag")
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-endif
+  " FZF Config {{{
+  " Use Ag to exclude gitignore files in fuzzy search
+  if executable("ag")
+    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  endif
 
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>gf :GitFiles<cr>
-nnoremap <leader>l :Rg<cr>
-" let g:ctrlp_custom_ignore = {
-"       \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
-"       \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-"       \ }
-" }}}
+  nnoremap <leader>f :Files<cr>
+  nnoremap <leader>gf :GitFiles<cr>
+  nnoremap <leader>l :Rg<cr>
+  " let g:ctrlp_custom_ignore = {
+  "       \ 'dir':  '\.git$\|node_modules\|log\|tmp$',
+  "       \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  "       \ }
+  " }}}
 
-" Airline Settings {{{
-let g:airline#extensions#branch#enabled=1
+  " Airline Settings {{{
+  let g:airline#extensions#branch#enabled=1
 
-let g:airline#extensions#tabline#show_close_button = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-" }}}
+  let g:airline#extensions#tabline#show_close_button = 1
+  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+  let g:airline#extensions#tabline#tab_nr_type = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
+  nmap <leader>1 <Plug>AirlineSelectTab1
+  nmap <leader>2 <Plug>AirlineSelectTab2
+  nmap <leader>3 <Plug>AirlineSelectTab3
+  nmap <leader>4 <Plug>AirlineSelectTab4
+  nmap <leader>5 <Plug>AirlineSelectTab5
+  nmap <leader>6 <Plug>AirlineSelectTab6
+  nmap <leader>7 <Plug>AirlineSelectTab7
+  nmap <leader>8 <Plug>AirlineSelectTab8
+  nmap <leader>9 <Plug>AirlineSelectTab9
+  " }}}
 
 endif
 
@@ -209,7 +205,7 @@ colorscheme kanagawa
 " Autocommands {{{
 augroup file_types
   autocmd!
-  autocmd FileType cpp,c,typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType cpp,c,typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh,xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType html nnoremap <leader>r :!open %<cr>
   autocmd FileType gitcommit,markdown setlocal spell
   autocmd FileType cpp,h,c setlocal colorcolumn=90 foldmethod=syntax foldlevel=1
@@ -269,6 +265,9 @@ nnoremap <Leader>p pg`[1v
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+if has('nvim')
+    lua require('init')
+endif
 
 " The line beneath this is called `modeline`. See `:help modeline`
 " vim: ts=2 sts=2 sw=2 et
