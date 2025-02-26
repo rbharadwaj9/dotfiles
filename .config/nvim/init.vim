@@ -4,6 +4,12 @@
 nnoremap <Space> <Nop>
 let mapleader = " "
 
+if has('nvim')
+    " Load Plugins from Lazy. TODO: Move to init.lua after all vim-plug
+    " plugins are migrated
+    lua require("config.lazy")
+endif
+
 " Vim PLUG settings {{{
 call plug#begin()
 
@@ -16,18 +22,12 @@ Plug 'ludovicchabant/vim-gutentags'
 " Nvim specific
 if has('nvim')
 
-  Plug 'nvim-lua/plenary.nvim'
-
   " Statusline
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'akinsho/bufferline.nvim'
 
   " Winbar
   Plug 'fgheng/winbar.nvim'
-
-  " Mason for ease of use with external tooling
-  Plug 'williamboman/mason.nvim'
-  Plug 'williamboman/mason-lspconfig.nvim'
 
   " Formatting
   Plug 'mhartington/formatter.nvim'
@@ -47,10 +47,6 @@ if has('nvim')
   " LuaSnip
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
-
-  " Treesitter
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/playground'
 
   " Telescope
   Plug 'nvim-telescope/telescope.nvim'
@@ -72,8 +68,13 @@ if has('nvim')
   Plug 'theHamsta/nvim-dap-virtual-text'
 
 else
+  " Lazy nvim migration in progress.
   " Only for Vim
   Plug 'vim-airline/vim-airline'
+
+  " Bracket Completion
+  Plug 'tpope/vim-surround'
+  Plug 'jiangmiao/auto-pairs'
 
   " Fuzzy Finding
   " Plug 'kien/ctrlp.vim'
@@ -103,9 +104,6 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 " " ROS
 " Plug 'taketwo/vim-ros'
 
-" Bracket Completion
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
 
 " Syntax Related Plugins
 Plug 'Glench/Vim-Jinja2-Syntax'
