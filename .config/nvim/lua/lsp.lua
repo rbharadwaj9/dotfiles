@@ -16,18 +16,18 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<leader>ad', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end)
 -- vim.keymap.set('n', '<leader>ad', vim.diagnostic.setloclist)
 
--- LSP References Plugin
-require 'nice-reference'.setup({
-    anchor = "NW", -- Popup position anchor
-    relative = "cursor", -- Popup relative position
-    row = 1, -- Popup x position
-    col = 0, -- Popup y position
-    border = "rounded", -- Popup borderstyle
-    winblend = 0, -- Popup transaparency 0-100, where 100 is transparent
-    max_width = 120, -- Max width of the popup
-    max_height = 10, -- Max height of the popup
-    auto_choose = false, -- Go to reference if there is only one
-})
+-- -- LSP References Plugin
+-- require 'nice-reference'.setup({
+--     anchor = "NW", -- Popup position anchor
+--     relative = "cursor", -- Popup relative position
+--     row = 1, -- Popup x position
+--     col = 0, -- Popup y position
+--     border = "rounded", -- Popup borderstyle
+--     winblend = 0, -- Popup transaparency 0-100, where 100 is transparent
+--     max_width = 120, -- Max width of the popup
+--     max_height = 10, -- Max height of the popup
+--     auto_choose = false, -- Go to reference if there is only one
+-- })
 
 -- Code Context Plugin
 local navic = require('nvim-navic')
@@ -45,10 +45,11 @@ local on_attach = function(client, buffnr)
     vim.keymap.set('n', keys, func, { buffer = buffnr, desc = desc })
   end
 
-  nmap("gd", vim.lsp.buf.definition, "[G]oto [D]ocumentation")
-  nmap("gt", vim.lsp.buf.type_definition, "[G]oto [T]ype Definition")
-  nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-  nmap("gr", require ('nice-reference').references, "[G]oto [R]erferences")
+  -- Trying out snacks picker instead. Check plugins/snacks.lua
+  -- nmap("gd", vim.lsp.buf.definition, "[G]oto [D]ocumentation")
+  -- nmap("gt", vim.lsp.buf.type_definition, "[G]oto [T]ype Definition")
+  -- nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+  -- nmap("gr", require ('nice-reference').references, "[G]oto [R]erferences")
 
   -- Documentation Reference --
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -60,9 +61,7 @@ local on_attach = function(client, buffnr)
   -- Code Action --
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-  -- Symbols and References --
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  -- More keybinds are configured in the snacks settings.
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -82,13 +81,6 @@ local on_attach = function(client, buffnr)
     end
   end, { desc = 'Format current buffer with LSP' })
 end
-
--- -- C++ --
--- require('lspconfig').ccls.setup{
---   capabilities = capabilities,
---   -- Gets run inside every buffer that gets attached
---   on_attach = on_attach,
--- }
 
 -- -- Golang --
 -- require('lspconfig').gopls.setup{
@@ -133,9 +125,6 @@ end
 
 enable_lsp(servers.mason)
 -- enable_lsp(servers.other)
-
--- Turn on lsp status information
-require('fidget').setup {}
 
 -- Example custom configuration for lua
 --

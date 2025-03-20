@@ -35,18 +35,6 @@ if has('nvim')
   " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls' " Java
-  Plug 'j-hui/fidget.nvim' " Showing LSP status in the bottom right
-  Plug 'wiliamks/nice-reference.nvim' " Fetching LSP References
-
-  " Completion
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-
-  " LuaSnip
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'saadparwaiz1/cmp_luasnip'
 
   " Telescope
   Plug 'nvim-telescope/telescope.nvim'
@@ -121,7 +109,6 @@ Plug 'rbharadwaj9/a.vim'
 
 " Writing
 Plug 'vim-latex/vim-latex'
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Initialize plugin system
@@ -205,7 +192,7 @@ augroup file_types
   autocmd!
   autocmd FileType cpp,c,typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh,xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType html nnoremap <leader>r :!open %<cr>
-  autocmd FileType gitcommit,markdown setlocal spell
+  autocmd FileType gitcommit,markdown,org setlocal spell
   autocmd FileType cpp,h,c setlocal colorcolumn=90 foldmethod=syntax foldlevel=1
   autocmd FileType atlas set filetype=tasm
 augroup END
@@ -228,16 +215,6 @@ augroup markdown
 augroup END
 " }}}
 
-" goyo.vim for Reading/Writing Mode {{{
-augroup GoyoCallbacks
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
-augroup END
-
-let g:goyo_height = 100
-let g:goyo_width = 100
-
-nnoremap <leader>g :Goyo<cr>
 " }}}
 
 " Open current buffer in a new tab without any of the columns for copying

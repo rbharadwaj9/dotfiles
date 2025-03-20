@@ -92,7 +92,7 @@ vim.keymap.set('n', '<Leader>B', function() dap.set_breakpoint() end)
 
 vim.keymap.set('n', '<Leader>dr', function()
     require('dap').repl.open(
-        -- Open as a vertical split on the right and give is 25% space 
+        -- Open as a vertical split on the right and give is 25% space
         -- TODO
     )
 end)
@@ -112,7 +112,7 @@ vim.keymap.set('n', '<Leader>df', function()
   local widgets = require('dap.ui.widgets')
   widgets.centered_float(widgets.frames)
 end)
-vim.keymap.set('n', '<Leader>ds', function()
-  local widgets = require('dap.ui.widgets')
-  widgets.centered_float(widgets.scopes)
-end)
+-- vim.keymap.set('n', '<Leader>ds', function()
+--   local widgets = require('dap.ui.widgets')
+--   widgets.centered_float(widgets.scopes)
+-- end)

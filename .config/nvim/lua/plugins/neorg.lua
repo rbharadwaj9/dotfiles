@@ -39,9 +39,10 @@ return {
                     '~/notes/**/*',
                 },
                 org_default_notes_file = '~/notes/refile.org',
+                org_todo_keywords = { "TODO(t)", "IN_PROGRESS(p)", "|", "DONE(d)", "CANCELLED(c)" },
                 org_capture_templates = {
                     r = {
-
+                        description = 'Random', template = '* %?'
                     }
                 },
                 win_split_mode = 'vsplit',
