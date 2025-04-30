@@ -29,15 +29,20 @@ nvim_docker_wrapper() {
   # TODO: Maybe this can be hashed to prevent same named directories from clashing
   container_name="nvim_$(basename "$current_dir" | tr '[:upper:]' '[:lower:]' | tr -cd 'a-z0-9_')"
 
-  if ! docker container inspect "$container_name" &>/dev/null; then
+  # Check if container exists
+  if docker container inspect "$container_name" &>/dev/null; then
+    # Check if it's running
+    if [ "$(docker inspect -f '{{.State.Running}}' "$container_name")" == "true" ]; then
+      docker exec -it "$container_name" nvim "$@"
+    else
+      docker start -ai "$container_name"
+    fi
+  else
     docker run -it --name "$container_name" \
       --mount type=bind,source="$current_dir",target=/root/workspace \
       --workdir /root/workspace \
-      --detach \
-      rbharadwaj9/nvim:latest
+      rbharadwaj9/nvim:latest "$@"
   fi
-
-  docker exec -it "$container_name" nvim "$@"
 }
 
 # Handle case where nvim isn't installed
