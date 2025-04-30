@@ -190,7 +190,7 @@ colorscheme kanagawa
 " Autocommands {{{
 augroup file_types
   autocmd!
-  autocmd FileType cpp,c,typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh,xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType cpp,c,typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh,xml,org setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType html nnoremap <leader>r :!open %<cr>
   autocmd FileType gitcommit,markdown,org setlocal spell
   autocmd FileType cpp,h,c setlocal colorcolumn=90 foldmethod=syntax foldlevel=1

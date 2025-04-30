@@ -76,11 +76,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
+  git
   macos
-  tmux 
+  tmux
   vi-mode
-  zsh-syntax-highlighting 
+  zsh-syntax-highlighting
   zsh-autosuggestions
   colored-man-pages
   docker
@@ -107,6 +107,7 @@ else
   export EDITOR='nvim'
 fi
 
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -116,7 +117,14 @@ alias gco="git checkout"
 alias gl="git log --oneline"
 
 # Shortcut Aliases
-alias vi='vim'
+if command -v vim >/dev/null 2>&1; then
+  alias vi='vim'
+fi
+
+if command -v nvim >/dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 alias diff='colordiff'
 alias ll="ls -lahG"
 
@@ -174,7 +182,7 @@ then
   export PATH="/usr/local/lib/node_modules/:${PATH}"
 fi
 
-alias vim="nvim"
+
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 lazyload nvm -- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm

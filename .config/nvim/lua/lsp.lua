@@ -111,7 +111,8 @@ require('mason-lspconfig').setup {
 -- nvim-cmp supports additional completion capabilities
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-local capabilities = require('completion')
+-- local capabilities = require('completion')
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local enable_lsp = function(serv_list)
   for _, lsp in ipairs(serv_list) do
