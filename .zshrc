@@ -189,8 +189,3 @@ fi
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 lazyload nvm -- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/rbharadwaj/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
