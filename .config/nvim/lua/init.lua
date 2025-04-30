@@ -117,7 +117,9 @@ vim.keymap.set('n', '<leader>tf', "<cmd>NvimTreeFindFile<cr>")
 
 require("nvim-treesitter.configs").setup({
     highlight = {
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "bash", "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "latex", "make", "regex", "tmux", "yaml" },
         enable = true,
+        auto_install = true,
         -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
         -- the name of the parser)
