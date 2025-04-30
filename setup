@@ -1,49 +1,24 @@
 #!/usr/bin/env bash
 
 source colors.sh
-if [ "$(uname)" = "Darwin" ];
-then
-    read -p "Do you want to install software for mac? (y/n): " yn
-    case $yn in
-        [Yy]* ) ./mac_software_install.sh;;
-        * ) echo "Skipping software installation"
-    esac 
-elif [ "$(uname)" = "Linux" ];
-then
-    read -p "Do you want to install software for Linux? (y/n): " yn
-    case $yn in
-        [Yy]* ) ./linux_software_install.sh;;
-        * ) echo "Skipping software installation"
-    esac 
+if [ -n "$PS1" ]; then
+    echo -e "${cyan}INTERACTIVE MODE.${reset}"
+
+    if [ "$(uname)" = "Darwin" ];
+    then
+        read -p "Do you want to install software for mac? (y/n): " yn
+        case $yn in
+            [Yy]* ) ./mac_software_install.sh;;
+            * ) echo "Skipping software installation"
+        esac
+    elif [ "$(uname)" = "Linux" ];
+    then
+        read -p "Do you want to install software for Linux? (y/n): " yn
+        case $yn in
+            [Yy]* ) ./linux_software_install.sh;;
+            * ) echo "Skipping software installation"
+        esac
+    fi
 fi
 
-echo -e "${cyan}Symlinking setup files.${reset}"
-for dotfile in .[A-Za-z]*;
-do
-    if [[ "$dotfile" == *".swp"* ]]
-    then
-        continue
-    fi
-
-    echo $dotfile
-    if [ $dotfile = ".git" ] || [ $dotfile = ".DS_Store" ];
-    then
-        echo "Skipping $dotfile"
-    else
-        if [ -d $dotfile ]
-        then
-            echo "${yellow}${dotfile} is a folder${reset}"
-            mkdir ~/$(basename $dotfile)
-            ln -s $(pwd)/$dotfile/* ~/$(basename $dotfile)  
-        else
-            echo "Creating symlink for dotfile: $dotfile"
-            ln -s $(pwd)/$dotfile ~/$(basename $dotfile)
-        fi
-    fi
-done
-echo "${green}Symlink creation successful!${reset}"
-
-ln -s $(pwd)/startmux ~/startmux || echo "Error while symlinking tmux startup script"
-
-rm ~/.zshrc
-ln -s $(pwd)/.zshrc ~/.zshrc || echo "Error while symlinking .zshrc"
+source symlink.sh
