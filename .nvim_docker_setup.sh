@@ -26,6 +26,7 @@ nvim_docker_wrapper() {
   local current_dir
   current_dir=$(pwd)
   local container_name
+  # TODO: Maybe this can be hashed to prevent same named directories from clashing
   container_name="nvim_$(basename "$current_dir" | tr '[:upper:]' '[:lower:]' | tr -cd 'a-z0-9_')"
 
   if ! docker container inspect "$container_name" &>/dev/null; then
@@ -33,7 +34,7 @@ nvim_docker_wrapper() {
       --mount type=bind,source="$current_dir",target=/root/workspace \
       --workdir /root/workspace \
       --detach \
-      rbharadwaj9/nvim:latest tail -f /dev/null
+      rbharadwaj9/nvim:latest
   fi
 
   docker exec -it "$container_name" nvim "$@"
