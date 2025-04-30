@@ -42,7 +42,7 @@ RUN git clone --depth=1 https://github.com/rbharadwaj9/dotfiles ~/repo/dotfiles 
         && cp ~/repo/dotfiles/.gitconfig ~/.gitconfig \
         && cd ~/repo/dotfiles && ~/repo/dotfiles/symlink.sh
 
-RUN nvim --headless +"Lazy install" +PlugInstall +MasonInstall +"TSInstallSync all" +qall
+RUN nvim --headless +"Lazy install" +PlugInstall +MasonInstall +qall
 
 RUN mkdir /root/workspace
 WORKDIR /root/workspace
