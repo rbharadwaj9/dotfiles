@@ -32,7 +32,7 @@ nvim_docker_wrapper() {
   # Check if container exists
   if docker container inspect "$container_name" &>/dev/null; then
     # Check if it's running
-    if [ "$(docker inspect -f '{{.State.Running}}' "$container_name")" == "true" ]; then
+    if [[ "$(docker inspect -f '{{.State.Running}}' "$container_name")" == "true" ]]; then
       docker exec -it "$container_name" nvim "$@"
     else
       docker start -ai "$container_name"
