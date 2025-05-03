@@ -101,7 +101,7 @@ compinit -C
 export LC_ALL="en_US.UTF-8"
 
 # Set up neovim
-source ./.nvim_docker_setup.sh
+source ~/.nvim_docker_setup.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -122,10 +122,6 @@ alias gl="git log --oneline"
 # Shortcut Aliases
 if command -v vim >/dev/null 2>&1; then
   alias vi='vim'
-fi
-
-if command -v nvim >/dev/null 2>&1; then
-  alias vim='nvim'
 fi
 
 alias diff='colordiff'

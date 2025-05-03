@@ -99,21 +99,6 @@ require("oil").setup()
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 -- Setup nvim-tree
-require("nvim-tree").setup({
-    filters = {
-        dotfiles = false,
-        git_ignored = false,
-        custom = { 'node_modules', '__pycache__' },
-    },
-    renderer = {
-        group_empty = true,
-    },
-})
-
-vim.keymap.set('n', '<leader>to', "<cmd>NvimTreeFocus<cr>")
-vim.keymap.set('n', '<leader>tt', "<cmd>NvimTreeToggle<cr>")
-vim.keymap.set('n', '<leader>tc', "<cmd>NvimTreeClose<cr>")
-vim.keymap.set('n', '<leader>tf', "<cmd>NvimTreeFindFile<cr>")
 
 require("nvim-treesitter.configs").setup({
     highlight = {
