@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 
 # Metadata
 LABEL description="Neovim running with rbharadwaj9's dotfiles"
-MAINTAINER "Rajiv Bharadwaj"
+LABEL org.opencontainers.image.authors="rajiv.bharadwaj9@gmail.com"
 
 # Set image locale.
 ENV LANG=en_US.UTF-8
@@ -37,12 +37,13 @@ RUN apt update && apt -y install --no-install-recommends \
 
 RUN git clone --depth=1 https://github.com/neovim/neovim /tmp/neovim && cd /tmp/neovim && make CMAKE_BUILD_TYPE=Release && make install && rm -rf /tmp/neovim
 
-RUN git clone --depth=1 https://github.com/rbharadwaj9/dotfiles ~/repo/dotfiles \
-        && cp ~/repo/dotfiles/.gitignore_global ~/.gitignore \
-        && cp ~/repo/dotfiles/.gitconfig ~/.gitconfig \
-        && cd ~/repo/dotfiles && ~/repo/dotfiles/symlink.sh
+WORKDIR /root/dotfiles
 
-RUN nvim --headless +"Lazy install" +PlugInstall +MasonInstall +qall
+COPY . .
+
+RUN ./symlink.sh
+
+RUN nvim --headless +PlugInstall +"Lazy install" +MasonInstall +qall
 
 RUN mkdir /root/workspace
 WORKDIR /root/workspace
