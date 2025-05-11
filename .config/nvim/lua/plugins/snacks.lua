@@ -35,7 +35,7 @@ return {
             words = { enabled = true },
         },
         keys = {
-            { "<leader>f", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+            { "<leader>f", function() Snacks.picker.files() end, desc = "Find Files" },
             { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
             { "<leader>l", function() Snacks.picker.grep() end, desc = "Grep for lines" },
             -- Grep
