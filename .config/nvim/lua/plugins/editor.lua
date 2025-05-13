@@ -3,8 +3,29 @@ return {
     -- Tree sitter
     {
         "nvim-treesitter/nvim-treesitter",
-        lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
         build = ":TSUpdate",
+        config = function ()
+            local configs = require("nvim-treesitter.configs")
+
+            configs.setup({
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "markdown", "markdown_inline", "python", "bash", "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "latex", "make", "regex", "tmux", "yaml" },
+                auto_install = true,
+                sync_install = false,
+                highlight = {
+                    enable = true,
+                    indent = {
+                        enable = true,
+
+                    },
+                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                    -- Instead of true it can also be a list of languages
+                    additional_vim_regex_highlighting = false,
+                },
+                indent = { enable = true },
+            })
+        end
     },
     {
         "nvim-treesitter/playground",
@@ -49,7 +70,7 @@ return {
                 version = '*',
                 opts = {},
             },
-             "petertriho/cmp-git",
+            "petertriho/cmp-git",
         },
 
         -- Lazyload
