@@ -110,6 +110,8 @@ else
   export EDITOR='nvim'
 fi
 
+# For ssh agent systemd script
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -118,6 +120,9 @@ fi
 alias gs="git status"
 alias gco="git checkout"
 alias gl="git log --oneline"
+
+# kitty ssh fix
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"
 
 # Shortcut Aliases
 if command -v vim >/dev/null 2>&1; then

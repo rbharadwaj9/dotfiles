@@ -1,0 +1,10 @@
+{
+  "menu": "rofi -dmenu -p 'quickterm: ' -no-custom -auto-select",
+  "term": "kitty",
+  "history": "{$HOME}/.cache/i3/i3-quickterm.order",
+  "ratio": 0.5,
+  "pos": "top",
+  "shells": {
+    "shell": "tmux new-session -s quickterm"
+  }
+}

@@ -1,0 +1,12 @@
+
+// @theme "nord"
+configuration {
+  modi: "drun,ssh,combi";
+  font: "Cascadia Code 12";
+  show-icons: true;
+  display-drun: "Apps";
+  drun-display-format:		"{name}";
+  combi-modi: "window,ssh,run";
+  dpi:144;
+}
+@theme "Arc-Dark"
