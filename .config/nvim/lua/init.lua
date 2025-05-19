@@ -81,9 +81,6 @@ require('winbar').setup({
     }
 })
 
--- Setup mason so it can manage external tooling
-require('mason').setup()
-
 -- Setup LSP and Completion (done inside LSP)
 require 'lsp'
 
@@ -92,9 +89,6 @@ require 'formatter_config'
 
 -- Setup DAP
 require 'dap_config'
-
--- Oil for file manager
-require("oil").setup()
 
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1

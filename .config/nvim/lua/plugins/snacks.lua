@@ -51,7 +51,8 @@ return {
             { '<leader>dS', function() Snacks.picker.lsp_workspace_symbols() end, desc = '[W]orkspace [S]ymbols' },
 
             -- Rare
-            { '<leader><c-k>', function() Snacks.picker.keymaps() end, desc = 'Show keymaps' }
+            { '<leader><c-k>', function() Snacks.picker.keymaps() end, desc = 'Show keymaps' },
+            { '<leader>snh', function() Snacks.picker.notifications({layout = {preset = 'bottom'}, confirm = "put"}) end, desc = '[S]how [N]otification [H]istory' },
         }
     }
     }

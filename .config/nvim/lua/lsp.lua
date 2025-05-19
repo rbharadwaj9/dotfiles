@@ -6,8 +6,6 @@
 -- on their own. See https://langserver.org
 local rval = {}
 
-local home = os.getenv("HOME")
-
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>ak', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<leader>aj', vim.diagnostic.goto_next)
@@ -77,36 +75,9 @@ local on_attach = function(client, buffnr)
       vim.lsp.buf.format()
     elseif vim.lsp.buf.formatting then
       vim.lsp.buf.formatting()
-    -- elseif vim.
     end
   end, { desc = 'Format current buffer with LSP' })
 end
-
--- -- Golang --
--- require('lspconfig').gopls.setup{
---   capabilities = capabilities,
---   -- Gets run inside every buffer that gets attached
---   on_attach = on_attach,
--- }
-
--- -- Python --
--- require('lspconfig').jedi_language_server.setup{
---   capabilities = capabilities,
---   on_attach = on_attach,
--- }
-
--- Enable the following language servers
--- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = {
-  mason = { 'clangd', 'pyright', 'ts_ls', 'lua_ls', 'lemminx'},
-  other = { 'solargraph' },
-}
-
--- Ensure the servers above are installed
-require('mason-lspconfig').setup {
-  ensure_installed = servers.mason,
-}
-
 
 -- nvim-cmp supports additional completion capabilities
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -124,7 +95,7 @@ local enable_lsp = function(serv_list)
   end
 end
 
-enable_lsp(servers.mason)
+enable_lsp(require("constants.lsp_servers").mason)
 -- enable_lsp(servers.other)
 
 -- Example custom configuration for lua

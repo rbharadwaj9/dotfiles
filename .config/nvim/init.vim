@@ -43,9 +43,6 @@ if has('nvim')
   " Code Context
   Plug 'SmiteshP/nvim-navic'
 
-  " Oil Nvim
-  Plug 'stevearc/oil.nvim'
-
   " Debugging
   Plug 'mfussenegger/nvim-dap-python' " Python uses debugpy from Mason
   Plug 'mfussenegger/nvim-dap'
@@ -234,7 +231,7 @@ nnoremap <Leader>p pg`[1v
 " map q: <Nop>
 
 " Replace word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+"nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 if has('nvim')
     lua require('init')

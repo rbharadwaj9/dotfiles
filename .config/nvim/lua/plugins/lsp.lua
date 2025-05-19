@@ -1,11 +1,14 @@
 return {
     {
-      'williamboman/mason.nvim',
-      lazy = false,
-    },
-    {
-      'williamboman/mason-lspconfig.nvim',
-      lazy = true,
+        "mason-org/mason-lspconfig.nvim",
+        opts = {
+            ensure_installed = require("constants.lsp_servers").mason
+        },
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            { "neovim/nvim-lspconfig", config = function() require('lsp') end },
+        },
+        event = "VeryLazy",
     },
     {
       'j-hui/fidget.nvim',
