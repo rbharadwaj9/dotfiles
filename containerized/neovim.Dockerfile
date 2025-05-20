@@ -18,6 +18,7 @@ RUN apt update && apt -y install --no-install-recommends \
     xclip \
     python3 \
     python3-pip \
+    python3-venv \
     nodejs \
     npm \
     tzdata \
@@ -43,7 +44,8 @@ COPY . .
 
 RUN ./symlink.sh
 
-RUN nvim --headless +PlugInstall +"Lazy install" +MasonInstall +qall
+RUN nvim --headless +PlugInstall +"Lazy install" +qall
+RUN nvim --headless +TSUpdateSync +qall
 
 RUN mkdir /root/workspace
 WORKDIR /root/workspace
