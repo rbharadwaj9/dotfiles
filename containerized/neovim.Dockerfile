@@ -44,8 +44,8 @@ COPY . .
 
 RUN ./symlink.sh
 
-RUN nvim --headless +PlugInstall +"Lazy install" +qall
-RUN nvim --headless +TSUpdateSync +qall
+RUN nvim --headless -E +PlugInstall +"Lazy install" +qall
+RUN nvim --headless -E +'TSUpdateSync' +'quit'
 
 RUN mkdir /root/workspace
 WORKDIR /root/workspace
