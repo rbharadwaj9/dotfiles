@@ -6,13 +6,15 @@ return {
         },
         dependencies = {
             { "mason-org/mason.nvim", opts = {} },
-            { "neovim/nvim-lspconfig", config = function() require('lsp') end },
+            { "neovim/nvim-lspconfig", },
         },
-        event = "VeryLazy",
+        lazy = false,
     },
     {
       'j-hui/fidget.nvim',
       event = "LspAttach",
-      config = true,
+      config = function ()
+            require('lsp')
+      end,
     },
 }

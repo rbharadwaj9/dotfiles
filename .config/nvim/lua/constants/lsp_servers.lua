@@ -1,7 +1,7 @@
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed (if provided within Mason)
 return {
-    mason = { 'clangd', 'pyright', 'ts_ls', 'lua_ls', 'lemminx'},
+    mason = { 'clangd', 'ts_ls', 'lua_ls', 'lemminx', 'basedpyright', }, -- 'ruff', 'black', 'autopep8', 'pylsp', 'isort', },
     other = { 'solargraph' },
 }
 

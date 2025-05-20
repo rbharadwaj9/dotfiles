@@ -105,6 +105,23 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
+require("lspconfig").basedpyright.setup {
+  -- Gets run inside every buffer that gets attached
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    basedpyright = {
+      analysis = {
+        diagnosticMode = "openFilesOnly",
+        inlayHints = {
+          variableTypes = true,
+          callArgumentNames = true
+        }
+      }
+    }
+  }
+}
+
 require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
