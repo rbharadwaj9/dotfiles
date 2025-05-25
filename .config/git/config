@@ -1,5 +1,49 @@
-[core]
-	excludesfile = ~/.gitignore_global
+# Lots of useful resources to follow:
+# https://jvns.ca/blog/2024/02/16/popular-git-config-options/#merge-conflictstyle-zdiff3
+# https://gist.github.com/tdd/470582
+
 [user]
 	name = "Rajiv Bharadwaj"
 	email = 44103483+rbharadwaj9@users.noreply.github.com
+
+[core]
+    whitespace = error # To prevent trailing whitespaces from being committed
+
+[init]
+	defaultBranch = main
+
+[status]
+    showUntrackedFiles = all
+
+[rebase]
+    autoStash = true # Auto stash anything when rebase is invoked, and apply after it ends
+    missingCommitsCheck = warn # In case of interactive rebases
+
+[alias]
+    lg = log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+
+[diff]
+    # Use better, descriptive initials (c, i, w) instead of a/b.
+    mnemonicPrefix = true
+
+    algorithm = histogram
+
+[log]
+    # Use abbrev SHAs whenever possible/relevant instead of full 40 chars
+    abbrevCommit = true
+    # Automatically --follow when given a single path
+    follow = true
+
+[mergetool]
+    # Clean up backup files created by merge tools on tool exit
+    keepBackup = false
+    # Clean up temp files created by merge tools on tool exit
+    keepTemporaries = false
+    # Put the temp files in a dedicated dir anyway
+    writeToTemp = true
+
+[commit]
+    verbose = true
+
+[branch]
+    sort = committerdate

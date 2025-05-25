@@ -144,6 +144,10 @@ if !has('nvim')
   nmap <leader>9 <Plug>AirlineSelectTab9
   " }}}
 
+  " Open current buffer in a new tab without any of the columns for copying
+  " For nvim, moved to lua with better options
+  nnoremap <leader>z :tabedit %<CR>:setlocal nonumber norelativenumber<CR>:set signcolumn=no<CR>"
+
 endif
 
 let g:tex_flavor='pdflatex'
@@ -210,8 +214,6 @@ augroup END
 
 " }}}
 
-" Open current buffer in a new tab without any of the columns for copying
-nnoremap <leader>z :tabedit %<CR>:setlocal nonumber norelativenumber<CR>:set signcolumn=no<CR>"
 
 " Intuitive line scrolling
 nnoremap <silent> j gj
