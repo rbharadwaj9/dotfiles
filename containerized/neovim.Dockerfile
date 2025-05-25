@@ -45,7 +45,7 @@ COPY . .
 RUN ./symlink.sh
 
 RUN nvim --headless +PlugInstall +"Lazy! install" +qall
-RUN nvim --headless -E +'TSUpdateSync' +'quit'
+RUN nvim --headless -E +'TSUpdateSync' +'sleep 30' +'quit' # TODO: Figure out how to remove the sleep and install in an event based fashion
 
 RUN mkdir /root/workspace
 WORKDIR /root/workspace
