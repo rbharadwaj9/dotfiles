@@ -8,9 +8,12 @@ NVIM_CONFIG_FILE="$HOME/.nvim_docker_choice"
 NVIM_DOCKER_IMAGE="rbharadwaj9/nvim:latest"
 WORKSPACE_MARKER_FILE=".nvim_workspace"
 
-# Check if native nvim exists
+# Function to check if native nvim exists
 check_nvim() {
-    command -v nvim &>/dev/null
+  if command -v nvim &>/dev/null; then
+    return 0
+  fi
+  return 1
 }
 
 # Find closest .nvim_workspace in parent dirs
@@ -93,12 +96,16 @@ nvim_docker_wrapper() {
     fi
 }
 
+setup_docker_nvim() {
+  alias nvim='nvim_docker_wrapper'
+}
+
 # User choice setup
 handle_missing_nvim() {
     if [ -f "$NVIM_CONFIG_FILE" ]; then
         choice=$(cat "$NVIM_CONFIG_FILE")
         if [[ "$choice" == "docker" ]]; then
-            alias nvim='nvim_docker_wrapper'
+            setup_docker_nvim
         fi
         return
     fi
@@ -107,7 +114,7 @@ handle_missing_nvim() {
     read -r use_docker
     if [[ "$use_docker" =~ ^[Yy]$ ]]; then
         echo "docker" > "$NVIM_CONFIG_FILE"
-        alias nvim='nvim_docker_wrapper'
+        setup_docker_nvim
     else
         echo "manual" > "$NVIM_CONFIG_FILE"
         echo "You chose not to use Docker. Please install Neovim manually."
@@ -117,6 +124,4 @@ handle_missing_nvim() {
 # Activate docker wrapper if needed
 if ! check_nvim; then
     handle_missing_nvim
-else
-    alias nvim='nvim_docker_wrapper'
 fi
