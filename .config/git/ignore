@@ -1,2 +1,9 @@
 .git
 .luarc.json
+
+# Vimsession
+.vimsession
+
+# Swap Files
+*.swp
+*.swo

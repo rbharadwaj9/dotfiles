@@ -4,6 +4,24 @@ local dap = require("dap")
 local python_path = table.concat({ vim.fn.stdpath('data'),  'mason', 'packages', 'debugpy', 'venv', 'bin', 'python'}, '/'):gsub('//+', '/')
 require('dap-python').setup(python_path)
 
+-- TODO: Figure out how to do this dynamically instead
+table.insert(dap.configurations.python, {
+    type = 'python',
+    request = 'attach',
+    name = 'Locoma Container Attach',
+    connect = {
+      host = "127.0.0.1",
+      port = 5678
+    },
+    mode = "remote",
+    pathMappings = {
+      {
+        localRoot = "/root/workspace",  -- e.g., /home/user/code
+        remoteRoot = "/workspace" -- e.g., /app
+      }
+    }
+})
+
 
 -- Virtual Text. Requires Treesitter
 -- require("nvim-dap-virtual-text").setup()

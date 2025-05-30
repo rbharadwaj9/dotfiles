@@ -59,7 +59,7 @@ return {
         'lewis6991/gitsigns.nvim',
         event = "BufEnter",
         opts = {
-            current_line_blame = true,
+            current_line_blame = false,
             current_line_blame_opts = {
                 virt_text_pos = 'right_align',
                 delay = 1000,
@@ -88,6 +88,10 @@ return {
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
+            enabled = function ()
+                return not vim.list_contains({ 'lazy', 'rip-substitute', 'dap-repl'}, vim.bo.filetype) and vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
+            end,
+
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = { preset = 'enter' },
             signature = { enabled = true },
