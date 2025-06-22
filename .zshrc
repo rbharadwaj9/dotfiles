@@ -137,7 +137,7 @@ alias ll="ls -lahG"
 # devcontainer --workspace-folder .
 # }'
 alias devcup='devcontainer up --workspace-folder .'
-alias devcsh='devcontainer exec --workspace-folder . zsh'
+alias devcsh='devcontainer exec --workspace-folder . bash'
 
 alias mkdir="mkdir -p"
 alias mkcd='mkcd(){
