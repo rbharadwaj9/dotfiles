@@ -14,34 +14,18 @@ endif
 call plug#begin()
 
 " INSERT ALL PLUGS
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Nvim specific
 if has('nvim')
 
-  " Statusline
-  Plug 'nvim-lualine/lualine.nvim'
-  Plug 'akinsho/bufferline.nvim'
-
-  " Winbar
-  Plug 'fgheng/winbar.nvim'
-
-  " Formatting
-  Plug 'mhartington/formatter.nvim'
-
   " LSP
-  Plug 'neovim/nvim-lspconfig'
   Plug 'mfussenegger/nvim-jdtls' " Java
 
   " Telescope
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-
-  " Code Context
-  Plug 'SmiteshP/nvim-navic'
+  "Plug 'nvim-telescope/telescope.nvim'
+  "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
   " Debugging
   Plug 'mfussenegger/nvim-dap-python' " Python uses debugpy from Mason
@@ -49,6 +33,9 @@ if has('nvim')
   Plug 'theHamsta/nvim-dap-virtual-text'
 
 else
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-commentary'
+
   " Lazy nvim migration in progress.
   " Only for Vim
   Plug 'vim-airline/vim-airline'
@@ -70,8 +57,6 @@ endif
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nlknguyen/papercolor-theme'
 Plug 'rbharadwaj9/vim-vscode-theme'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'rebelot/kanagawa.nvim'
 
 " Async Makefile make build
 Plug 'tpope/vim-dispatch'
