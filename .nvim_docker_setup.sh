@@ -91,6 +91,7 @@ nvim_docker_wrapper() {
     else
         docker run -it --name "$container_name" \
             --mount type=bind,source="$root_dir",target=/root/workspace \
+            --network host \
             --workdir "$container_cwd" \
             ${NVIM_DOCKER_IMAGE} "$@"
     fi
