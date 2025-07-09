@@ -26,10 +26,12 @@ return {
   {
     'danilshvalov/org-modern.nvim',
     event = 'VeryLazy',
+    enabled = false,
   },
   {
     'nvim-orgmode/orgmode',
-    event = 'VeryLazy',
+    enabled = false,
+    event = 'VeryLazy', -- TODO: Change to keys
     dependencies = {'danilshvalov/org-modern.nvim',},
     config = function()
       local Menu = require("org-modern.menu")

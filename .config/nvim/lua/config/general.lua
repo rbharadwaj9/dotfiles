@@ -47,3 +47,5 @@ vim.keymap.set("n", "<leader>z", function()
 end, { desc = "Open clean tab for copy-paste" })
 
 -- TODO: Add some special background so that it looks different
+
+vim.keymap.set("n", "<c-q>", "<cmd>enew<CR>", { desc = "New empty buffer" })
