@@ -80,12 +80,15 @@ plugins=(
   macos
   tmux
   vi-mode
-  zsh-syntax-highlighting
   zsh-autosuggestions
   colored-man-pages
   docker
-  zsh-lazyload
+  nvm
+  z
+  zsh-syntax-highlighting
 )
+
+zstyle ':omz:plugins:nvm' lazy yes # Lazy loading nvm to improve startup time
 
 source $ZSH/oh-my-zsh.sh
 
@@ -191,7 +194,9 @@ then
   export PATH="/usr/local/lib/node_modules/:${PATH}"
 fi
 
-
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-lazyload nvm -- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# Commented out in favor of oh-my-zsh nvm plugin. Yet to check if it works for non-interactive shells
+# if ! [[ -o interactive ]]
+# then
+#   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# fi
