@@ -31,7 +31,6 @@ vim.keymap.set('n', '<leader>ad', function() vim.diagnostic.enable(not vim.diagn
 local navic = require('nvim-navic')
 
 local on_attach = function(client, buffnr)
-
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, buffnr)
   end
@@ -142,6 +141,30 @@ require('lspconfig').lua_ls.setup {
     },
   },
 }
+
+require('lspconfig').yamlls.setup({
+  settings = {
+    yaml = {
+      schemaStore = {
+        -- disable in favor of schemastore plugin
+        enable = false,
+        url = "",
+      },
+      schemas = require("schemastore").yaml.schemas(),
+    },
+  },
+  capabilities = require("blink.cmp").get_lsp_capabilities({}, true),
+})
+
+require('lspconfig').jsonls.setup({
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
+  capabilities = require("blink.cmp").get_lsp_capabilities({}, true),
+})
 
 -- require('lspconfig').solargraph.setup {
 --   on_attach = on_attach,

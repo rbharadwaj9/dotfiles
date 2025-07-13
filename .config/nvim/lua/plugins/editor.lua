@@ -147,7 +147,7 @@ return {
   },
   {
     'lewis6991/gitsigns.nvim',
-    event = "BufEnter",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
       current_line_blame = false,
       current_line_blame_opts = {
