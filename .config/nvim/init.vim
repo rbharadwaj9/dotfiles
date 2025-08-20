@@ -214,6 +214,9 @@ nmap <leader>O m`O<ESC>``
 " Paste block without exitting visual mode
 nnoremap <Leader>p pg`[1v
 
+"" Save file with jk
+"nnoremap jk :w<cr>
+
 " " Disable Command Line history mode.
 " map q: <Nop>
 

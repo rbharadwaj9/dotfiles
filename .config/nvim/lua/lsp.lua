@@ -82,7 +82,7 @@ end
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- local capabilities = require('completion')
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities = require('blink.cmp').get_lsp_capabilities({}, true)
 
 local enable_lsp = function(serv_list)
   for _, lsp in ipairs(serv_list) do
@@ -111,7 +111,7 @@ require("lspconfig").basedpyright.setup {
   settings = {
     basedpyright = {
       analysis = {
-        diagnosticMode = "openFilesOnly",
+        -- diagnosticMode = "openFilesOnly",
         inlayHints = {
           variableTypes = true,
           callArgumentNames = true

@@ -1,9 +1,9 @@
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-        -- Remove trailing whitespace
-        vim.cmd([[%s/\s\+$//e]])
-    end
+  pattern = "*",
+  callback = function()
+    -- Remove trailing whitespace
+    vim.cmd([[%s/\s\+$//e]])
+  end
 })
 
 -- All the configuration done in lua for neovim will be enabled from here
@@ -49,3 +49,28 @@ end, { desc = "Open clean tab for copy-paste" })
 -- TODO: Add some special background so that it looks different
 
 vim.keymap.set("n", "<c-q>", "<cmd>enew<CR>", { desc = "New empty buffer" })
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "dap-float",
+    "help"
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
+-- close some filetypes with <q> (buffer delete)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "dap-terminal",
+  },
+  callback = function(event)
+    vim.keymap.set("n", "q", "<cmd>bdelete!<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
