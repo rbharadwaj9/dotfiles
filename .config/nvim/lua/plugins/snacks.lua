@@ -78,9 +78,9 @@ return {
       words = { enabled = true },
     },
     keys = {
-      -- { "<leader>f",     function() Snacks.picker.files() end,                                                        desc = "Find Files" },
-      -- { "<leader>,",     function() Snacks.picker.buffers() end,                                                      desc = "Buffers" },
-      -- { "<leader>l",     function() Snacks.picker.grep() end,                                                         desc = "Grep for lines" },
+      { "<leader>f",     function() Snacks.picker.files() end,                                                        desc = "Find Files" },
+      { "<leader>,",     function() Snacks.picker.buffers() end,                                                      desc = "Buffers" },
+      { "<leader>l",     function() Snacks.picker.grep() end,                                                         desc = "Grep for lines" },
       -- Grep
       { "<leader>Sb",    function() Snacks.picker.lines() end,                                                        desc = "Search for lines in [B]uffer" },
       { "<leader>sw",    function() Snacks.picker.grep_word() end,                                                    desc = "Visual selection or word",       mode = { "n", "x" } },

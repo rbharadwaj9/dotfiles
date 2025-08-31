@@ -101,7 +101,6 @@ return {
   -- Winbar
   {
     'fgheng/winbar.nvim',
-    enabled = true,
     opts = {
       enabled = true,
 

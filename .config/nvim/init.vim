@@ -167,7 +167,7 @@ let g:gutentags_enabled = 0
 
 set termguicolors
 
-colorscheme jellybeans
+colorscheme kanagawa
 
 " Autocommands {{{
 augroup file_types
