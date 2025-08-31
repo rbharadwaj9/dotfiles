@@ -50,7 +50,7 @@ local on_attach = function(client, buffnr)
 
   -- Documentation Reference --
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Smart Rename --
   nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
