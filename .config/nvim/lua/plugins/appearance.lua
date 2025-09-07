@@ -9,12 +9,19 @@ return {
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
-          statusline = {},
-          winbar = {},
+          statusline = { "snacks_dashboard" },
+          winbar = { "snacks_dashboard" },
         },
-        ignore_focus = {},
+        ignore_focus = {
+          -- "dap-repl",
+          "dapui_breakpoints",
+          "dapui_console",
+          "dapui_scopes",
+          "dapui_stacks",
+          "dapui_watches",
+        },
         always_divide_middle = true,
-        always_show_tabline = true,
+        always_show_tabline = false,
         globalstatus = false,
         refresh = {
           statusline = 1000,
@@ -39,7 +46,7 @@ return {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diagnostics'},
         lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {'lsp_status', 'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
       },
@@ -54,12 +61,16 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
+      extensions = {
+        'nvim-tree',
+        'oil',
+        'quickfix'
+      }
     },
   },
   {
     'akinsho/bufferline.nvim',
-    enabled = false,
+    enabled = true,
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function ()
       require("bufferline").setup{
