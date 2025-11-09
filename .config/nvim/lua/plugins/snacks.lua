@@ -66,6 +66,23 @@ return {
           },
         },
       },
+      zen = {
+        toggles = {
+          dim = false,
+          git_signs = false,
+        },
+        show = {
+          statusline = false,
+          tabline = false,
+        },
+        win = {
+          style = "zen",
+          width = 150,
+          backdrop = {
+            transparent = false,
+          }
+        }
+      },
       picker = {
         enabled = true,
         ui_select = true, -- use picker for vim.ui.select

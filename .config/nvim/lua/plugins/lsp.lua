@@ -16,7 +16,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = { "mason-org/mason-lspconfig.nvim", "saghen/blink.cmp", "SmiteshP/nvim-navic", },
-    config = function ()
+    config = function()
       require("lsp")
     end
 
@@ -30,6 +30,11 @@ return {
   {
     "b0o/SchemaStore.nvim",
     ft = { "json", "yaml" },
+  },
+  -- For D2 Diagrams
+  {
+    "terrastruct/d2-vim",
+    ft = { "d2" },
   },
 }
 

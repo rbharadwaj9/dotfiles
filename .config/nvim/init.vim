@@ -86,7 +86,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'rbharadwaj9/a.vim'
 
 " Writing
-Plug 'vim-latex/vim-latex'
+"Plug 'vim-latex/vim-latex'
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Initialize plugin system
@@ -135,7 +135,7 @@ if !has('nvim')
 
 endif
 
-let g:tex_flavor='pdflatex'
+"let g:tex_flavor='pdflatex'
 
 " Other stuff personalized settings
 set number
@@ -183,9 +183,9 @@ augroup filetype_vim
   autocmd! FileType vim setlocal foldmethod=marker
 augroup END
 
-augroup latex
-  autocmd BufWritePost *.tex Dispatch! latexmk -pdf main.tex
-augroup END
+"augroup latex
+"  "autocmd BufWritePost *.tex Dispatch! latexmk -pdf main.tex
+"augroup END
 
 " augroup syntax
 "   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch

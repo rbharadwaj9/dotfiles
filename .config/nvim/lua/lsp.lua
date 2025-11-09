@@ -114,8 +114,9 @@ require("lspconfig").basedpyright.setup {
         -- diagnosticMode = "openFilesOnly",
         inlayHints = {
           variableTypes = true,
-          callArgumentNames = true
-        }
+          callArgumentNames = true,
+        },
+        typeCheckingMode = "basic",
       }
     }
   }

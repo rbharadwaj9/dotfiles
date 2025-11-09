@@ -4,11 +4,12 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function ()
+    config = function()
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "markdown", "markdown_inline", "python", "bash", "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "make", "regex", "tmux", "yaml" },
+        ignore_install = { "latex" },
         auto_install = true,
         sync_install = false,
         highlight = {
@@ -85,8 +86,9 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      enabled = function ()
-        return not vim.list_contains({ 'lazy', 'rip-substitute', 'dap-repl'}, vim.bo.filetype) and vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
+      enabled = function()
+        return not vim.list_contains({ 'lazy', 'rip-substitute', 'dap-repl' }, vim.bo.filetype) and
+        vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
       end,
 
       -- See :h blink-cmp-config-keymap for defining your own keymap
@@ -127,7 +129,7 @@ return {
         },
       },
 
-      cmdline ={
+      cmdline = {
         enabled = false,
       },
 
@@ -155,6 +157,13 @@ return {
         delay = 1000,
       },
     },
+  },
+  -- TODO: Organize plugin distributions better
+  {
+    "ravsii/tree-sitter-d2",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    version = "*", -- use the latest git tag instead of main
+    build = "make nvim-install",
   },
 }
 
