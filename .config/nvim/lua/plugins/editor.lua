@@ -4,29 +4,35 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    lazy = false,
     config = function()
-      local configs = require("nvim-treesitter.configs")
-
-      configs.setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "markdown", "markdown_inline", "python", "bash", "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "make", "regex", "tmux", "yaml" },
-        ignore_install = { "latex" },
-        auto_install = true,
-        sync_install = false,
-        highlight = {
-          enable = true,
-          indent = {
-            enable = true,
-
-          },
-          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-          -- Using this option may slow down your editor, and you may see some duplicate highlights.
-          -- Instead of true it can also be a list of languages
-          additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true },
-      })
+      require("nvim-treesitter").install {
+        "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "markdown", "markdown_inline", "python", "bash", "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "make", "regex", "tmux", "yaml"
+      }
     end
+    -- config = function()
+    --   local configs = require("nvim-treesitter.configs")
+    --
+    --   configs.setup({
+    --     ensure_installed = {
+    --     ignore_install = { "latex" },
+    --     auto_install = true,
+    --     sync_install = false,
+    --     highlight = {
+    --       enable = true,
+    --       indent = {
+    --         enable = true,
+    --
+    --       },
+    --       -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    --       -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    --       -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    --       -- Instead of true it can also be a list of languages
+    --       additional_vim_regex_highlighting = false,
+    --     },
+    --     indent = { enable = true },
+    --   })
+    -- end
   },
   {
     "nvim-treesitter/playground",
@@ -159,12 +165,13 @@ return {
     },
   },
   -- TODO: Organize plugin distributions better
-  {
-    "ravsii/tree-sitter-d2",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    version = "*", -- use the latest git tag instead of main
-    build = "make nvim-install",
-  },
+  -- {
+  --   "ravsii/tree-sitter-d2",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   version = "*", -- use the latest git tag instead of main
+  --   build = "make nvim-install",
+  --   enabled = false,
+  -- },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
