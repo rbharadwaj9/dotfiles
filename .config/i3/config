@@ -204,9 +204,11 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command i3status
-}
+# bar {
+#     status_command polybar
+# }
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id picom
 
 # # Theme colors
 client.focused          #272827 #272827 #657b83 #272827 #272827
@@ -218,12 +220,12 @@ client.placeholder      #272827 #272827 #657b83 #272827 #272827
 client.background       #272827
 
 # Gaps
-gaps inner 10
-gaps outer -4
+gaps inner 5
+gaps outer 0
 
 smart_gaps off
 
-exec_always setxkbmap -option caps:escape
+# exec_always setxkbmap -option caps:escape
 
 # brightness
 bindsym XF86MonBrightnessUp exec "brightnessctl s +5%"

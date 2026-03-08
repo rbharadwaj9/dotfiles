@@ -2,7 +2,7 @@
 // @theme "nord"
 configuration {
   modi: "drun,ssh,combi";
-  font: "Cascadia Code 12";
+  font: "Cascadia Code 7";
   show-icons: true;
   display-drun: "Apps";
   drun-display-format:		"{name}";
