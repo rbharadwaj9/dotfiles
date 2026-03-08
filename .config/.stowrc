@@ -1,0 +1,6 @@
+--target=~/.config
+--ignore=.stowrc
+--ignore=scripts/*
+--ignore=containerized/*
+--ignore=.*.txt
+--ignore=.*.md
