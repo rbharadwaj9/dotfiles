@@ -84,13 +84,19 @@ end
 -- local capabilities = require('completion')
 local capabilities = require('blink.cmp').get_lsp_capabilities({}, true)
 
+vim.lsp.config('*', {
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
 local enable_lsp = function(serv_list)
   for _, lsp in ipairs(serv_list) do
-    require('lspconfig')[lsp].setup {
-      -- Gets run inside every buffer that gets attached
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
+    -- vim.lsp.config[lsp].setup {
+    --   -- Gets run inside every buffer that gets attached
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    -- }
+    vim.lsp.enable(lsp)
   end
 end
 
@@ -104,7 +110,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require("lspconfig").basedpyright.setup {
+vim.lsp.config["basedpyright"] = {
   -- Gets run inside every buffer that gets attached
   on_attach = on_attach,
   capabilities = capabilities,
@@ -122,7 +128,7 @@ require("lspconfig").basedpyright.setup {
   }
 }
 
-require('lspconfig').lua_ls.setup {
+vim.lsp.config["lua_ls"] = {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -143,7 +149,7 @@ require('lspconfig').lua_ls.setup {
   },
 }
 
-require('lspconfig').yamlls.setup({
+vim.lsp.config["yamlls"] = {
   settings = {
     yaml = {
       schemaStore = {
@@ -154,18 +160,18 @@ require('lspconfig').yamlls.setup({
       schemas = require("schemastore").yaml.schemas(),
     },
   },
-  capabilities = require("blink.cmp").get_lsp_capabilities({}, true),
-})
+  -- capabilities = require("blink.cmp").get_lsp_capabilities({}, true),
+}
 
-require('lspconfig').jsonls.setup({
+vim.lsp.config["jsonls"].setup = {
   settings = {
     json = {
       schemas = require("schemastore").json.schemas(),
       validate = { enable = true },
     },
   },
-  capabilities = require("blink.cmp").get_lsp_capabilities({}, true),
-})
+  -- capabilities = require("blink.cmp").get_lsp_capabilities({}, true),
+}
 
 -- require('lspconfig').solargraph.setup {
 --   on_attach = on_attach,

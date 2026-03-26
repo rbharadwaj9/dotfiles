@@ -83,12 +83,12 @@ plugins=(
   zsh-autosuggestions
   colored-man-pages
   docker
-  nvm
+  # nvm
   z
   zsh-syntax-highlighting
 )
 
-zstyle ':omz:plugins:nvm' lazy yes # Lazy loading nvm to improve startup time
+# zstyle ':omz:plugins:nvm' lazy yes # Lazy loading nvm to improve startup time
 
 source $ZSH/oh-my-zsh.sh
 
@@ -194,11 +194,39 @@ then
   export PATH="/usr/local/lib/node_modules/:${PATH}"
 fi
 
-# Commented out in favor of oh-my-zsh nvm plugin. Yet to check if it works for non-interactive shells
-if ! [[ -o interactive ]]
-then
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-fi
+# # Commented out in favor of oh-my-zsh nvm plugin. Yet to check if it works for non-interactive shells
+# if ! [[ -o interactive ]]
+# then
+#   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# fi
+#
+# export PATH="/home/rbharadwaj/.pixi/bin:$PATH"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="/home/rbharadwaj/.pixi/bin:$PATH"
+export NVM_DIR="${XDG_CONFIG_HOME:-$HOME/.nvm}"
+
+lazy_load_nvm() {
+  unset -f nvm node npm npx pnpm yarn
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+}
+
+nvm() {
+  lazy_load_nvm
+  nvm "$@"
+}
+
+node() {
+  lazy_load_nvm
+  node "$@"
+}
+
+npm() {
+  lazy_load_nvm
+  npm "$@"
+}
+
+npx() {
+  lazy_load_nvm
+  npx "$@"
+}
