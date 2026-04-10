@@ -7,12 +7,15 @@ return {
   {
     'catppuccin/nvim',
     name = "catppuccin",
+    lazy = true,
   },
   {
     "logico/typewriter-vim",
+    lazy = true,
   },
   {
     'nordtheme/vim',
+    lazy = true,
   }
 }
 

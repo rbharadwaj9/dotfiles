@@ -34,6 +34,7 @@ return {
   },
   {
     "junegunn/goyo.vim",
+    ft = {"tex", "markdown"}
   }
 }
 

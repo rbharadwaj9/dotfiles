@@ -40,7 +40,8 @@ return {
   },
   -- Bracket Completion
   {
-    'tpope/vim-surround'
+    'tpope/vim-surround',
+    event = "InsertEnter",
   },
   {
     'windwp/nvim-autopairs',
@@ -51,6 +52,7 @@ return {
   {
     'mhartington/formatter.nvim',
     event = "VeryLazy",
+    enabled = false,
     config = function()
       require 'formatter_config'
     end,

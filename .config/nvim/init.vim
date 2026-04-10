@@ -193,7 +193,7 @@ augroup END
 
 augroup markdown
   " Align Markdown Tables
-  autocmd FileType markdown vmap <Leader><Bar> :EasyAlign*<Bar><Enter>
+  autocmd FileType markdown,tex vmap <Leader><Bar> :EasyAlign*<Bar><Enter>
 augroup END
 " }}}
 

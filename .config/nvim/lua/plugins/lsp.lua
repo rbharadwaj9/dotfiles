@@ -1,25 +1,14 @@
 return {
   {
     "mason-org/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup {
-        ensure_installed = require("constants.lsp_servers").mason,
-        automatic_enable = false -- Since we have a separate lsp loading script, prevents duplicate LSPs
-      };
-    end,
+    opts = {
+      ensure_installed = require("constants.lsp_servers").mason,
+    },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
+      { "neovim/nvim-lspconfig" },
     },
     lazy = false,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    dependencies = { "mason-org/mason-lspconfig.nvim", "saghen/blink.cmp", "SmiteshP/nvim-navic", },
-    config = function()
-      require("lsp")
-    end
-
   },
   {
     'j-hui/fidget.nvim',

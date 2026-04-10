@@ -72,6 +72,7 @@ return {
     'akinsho/bufferline.nvim',
     enabled = true,
     dependencies = 'nvim-tree/nvim-web-devicons',
+    event = "BufReadPost",
     config = function ()
       require("bufferline").setup{
         options = {
@@ -112,6 +113,7 @@ return {
   -- Winbar
   {
     'fgheng/winbar.nvim',
+    event = "BufReadPost",
     opts = {
       enabled = true,
 
