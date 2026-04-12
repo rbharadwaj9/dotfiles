@@ -41,7 +41,19 @@ return {
     'stevearc/oil.nvim',
     ---@module 'oil'
     ---@type oil.SetupOpts
-    opts = {},
+    opts = {
+      git = {
+        add = function(path)
+          return true
+        end,
+        mv = function(src_path, dest_path)
+          return true
+        end,
+        rm = function(path)
+          return true
+        end,
+      }
+    },
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.

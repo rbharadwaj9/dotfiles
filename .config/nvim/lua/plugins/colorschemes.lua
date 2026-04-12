@@ -16,6 +16,10 @@ return {
   {
     'nordtheme/vim',
     lazy = true,
+  },
+  {
+    'ember-theme/nvim',
+    lazy = true,
   }
 }
 

@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.keymap.set("n", "<leader>z", function()
   -- Get content of current buffer
   local ft = vim.bo.filetype
-  local cur_pos = vim.api.nvim_win_get_cursor(0)  -- {line, col}
+  local cur_pos = vim.api.nvim_win_get_cursor(0) -- {line, col}
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 
   -- Open a new tab with a new scratch buffer
@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader>z", function()
   if target_col > #line_text then
     target_col = #line_text
   end
-  vim.api.nvim_win_set_cursor(0, {target_line, target_col})
+  vim.api.nvim_win_set_cursor(0, { target_line, target_col })
 
   -- Optional: visually select all text
   -- vim.cmd("normal! ggVG")
