@@ -2,17 +2,35 @@
 -- Uses all sane defaults from nvim.
 -- Only provides custom keymaps and configurations
 
-local nmap = function(keys, func, desc)
-  if desc then
-    desc = 'LSP: ' .. desc
-  end
-  vim.keymap.set('n', keys, func, { buffer = buffnr, desc = desc })
-end
+-- Global Keymaps (overrides and customs)
 
--- Keymaps
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump({ count = vim.v.count1, float = true })
+end, { desc = 'Jump to the next diagnostic in the current buffer' })
+
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump({ count = -vim.v.count1, float = true  })
+end, { desc = 'Jump to the previous diagnostic in the current buffer' })
+
+vim.keymap.set('n', ']D', function()
+  vim.diagnostic.jump({ count = vim._maxint, float = true, wrap = false })
+end, { desc = 'Jump to the last diagnostic in the current buffer' })
+
+vim.keymap.set('n', '[D', function()
+  vim.diagnostic.jump({ count = -vim._maxint, float = true, wrap = false })
+end, { desc = 'Jump to the first diagnostic in the current buffer' })
+
+-- Buffer Local Keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
   callback = function(ev)
+    local nmap = function(keys, func, desc)
+      if desc then
+        desc = 'LSP: ' .. desc
+      end
+      vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = desc })
+    end
+
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
 
     -- Diagnostic keymaps

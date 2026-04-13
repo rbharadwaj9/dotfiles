@@ -63,7 +63,7 @@ floating_modifier $mod
 bindsym $mod+Return exec TERM_PROGRAM=$term $term
 
 # Resolution
-exec_always --no-startup-id ~/.screenlayout/default.sh
+exec_always --no-startup-id ~/.screenlayout/set_layout.sh
 
 # Wallpaper
 exec_always "feh --bg-fill /usr/share/backgrounds/a_train_on_the_tracks.jpg"
@@ -237,6 +237,9 @@ gaps inner 5
 gaps outer 0
 
 smart_gaps off
+
+# Hide title bar for windows (show app name in polybar)
+for_window [class="^.*"] border pixel 0
 
 # brightness
 bindsym XF86MonBrightnessUp exec "brightnessctl s +5%"

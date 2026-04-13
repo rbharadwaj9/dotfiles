@@ -6,9 +6,28 @@ return {
     build = ":TSUpdate",
     lazy = false,
     config = function()
-      require("nvim-treesitter").install {
-        "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "markdown", "markdown_inline", "python", "bash", "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "make", "regex", "tmux", "yaml"
+      local ensureInstalled = {
+        "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "markdown", "markdown_inline", "python", "bash",
+        "bibtex", "cmake", "cpp", "csv", "dockerfile", "git_config", "git_rebase", "gitcommit", "json", "make", "regex",
+        "tmux", "yaml"
       }
+      local alreadyInstalled = require('nvim-treesitter.config').get_installed()
+      local parsersToInstall = vim.iter(ensureInstalled)
+          :filter(function(parser)
+            return not vim.tbl_contains(alreadyInstalled, parser)
+          end)
+          :totable()
+      require('nvim-treesitter').install(parsersToInstall)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = '*',
+        callback = function()
+          -- Enable treesitter highlighting and disable regex syntax
+          pcall(vim.treesitter.start)
+          -- Enable treesitter-based indentation
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
     end
     -- config = function()
     --   local configs = require("nvim-treesitter.configs")
@@ -38,16 +57,6 @@ return {
     "nvim-treesitter/playground",
     lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
   },
-  -- Bracket Completion
-  {
-    'tpope/vim-surround',
-    event = "InsertEnter",
-  },
-  {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = true
-  },
   -- Formatting
   {
     'mhartington/formatter.nvim',
@@ -56,99 +65,6 @@ return {
     config = function()
       require 'formatter_config'
     end,
-  },
-  -- Code Completion
-  {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippets
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      -- Helpers
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-    },
-    event = "VeryLazy",
-    enabled = false,
-  },
-  {
-    'saghen/blink.cmp',
-    dependencies = {
-      -- -- optional: provides snippets for the snippet source
-      -- 'rafamadriz/friendly-snippets'
-      {
-        'saghen/blink.compat',
-        version = '*',
-        opts = {},
-      },
-      "petertriho/cmp-git",
-    },
-
-    -- Lazyload
-    event = "InsertEnter",
-
-    -- use a release tag to download pre-built binaries
-    version = '1.*',
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
-    opts = {
-      enabled = function()
-        return not vim.list_contains({ 'lazy', 'rip-substitute', 'dap-repl' }, vim.bo.filetype) and
-        vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false
-      end,
-
-      -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = { preset = 'enter' },
-      signature = { enabled = true },
-
-      appearance = {
-        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono'
-      },
-
-      -- (Default) Only show the documentation popup when manually triggered
-      completion = {
-        documentation = {
-          auto_show = true,
-          auto_show_delay_ms = 200,
-        },
-      },
-
-      -- Default list of enabled providers defined so that you can extend it
-      -- elsewhere in your config, without redefining it, due to `opts_extend`
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-        per_filetype = {
-          gitcommit = { 'git', 'buffer' },
-          org = { 'orgmode', },
-        },
-        providers = {
-          git = {
-            name = 'git',
-            module = 'blink.compat.source',
-          },
-          orgmode = {
-            name = 'orgmode',
-            module = 'blink.compat.source',
-          }
-        },
-      },
-
-      cmdline = {
-        enabled = false,
-      },
-
-      -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
-      -- You may use a lua implementation instead by using `implementation = "lua"` or fallback to the lua implementation,
-      -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
-      --
-      -- See the fuzzy documentation for more information
-      fuzzy = { implementation = "prefer_rust_with_warning" }
-    },
-    opts_extend = { "sources.default" }
   },
   -- Git stuff
   {
@@ -166,14 +82,6 @@ return {
       },
     },
   },
-  -- TODO: Organize plugin distributions better
-  -- {
-  --   "ravsii/tree-sitter-d2",
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   version = "*", -- use the latest git tag instead of main
-  --   build = "make nvim-install",
-  --   enabled = false,
-  -- },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

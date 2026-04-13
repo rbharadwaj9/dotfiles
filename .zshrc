@@ -184,6 +184,12 @@ then
   export PATH="${HOME}/.local/bin:${PATH}"
 fi
 
+# Cargo Binaries
+if [ -d "${HOME}/.cargo/bin" ]
+then
+  export PATH="${HOME}/.cargo/bin:${PATH}"
+fi
+
 if [ -d "/usr/bin" ]
 then
   export PATH="/usr/bin:${PATH}"

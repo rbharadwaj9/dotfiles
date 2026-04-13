@@ -102,11 +102,11 @@ return {
       { "<leader>Sb",    function() Snacks.picker.lines() end,                                                        desc = "Search for lines in [B]uffer" },
       { "<leader>sw",    function() Snacks.picker.grep_word() end,                                                    desc = "Visual selection or word",       mode = { "n", "x" } },
       -- LSP
-      { "gd",            function() Snacks.picker.lsp_definitions() end,                                              desc = "[G]oto [D]efinition" },
-      { "gD",            function() Snacks.picker.lsp_declarations() end,                                             desc = "[G]oto [D]eclaration" },
-      { "gr",            function() Snacks.picker.lsp_references() end,                                               nowait = true,                           desc = "[G]oto [R]eferences" },
-      { "gI",            function() Snacks.picker.lsp_implementations() end,                                          desc = "[G]oto [I]mplementation" },
-      { "gt",            function() Snacks.picker.lsp_type_definitions() end,                                         desc = "Goto [T]ype Definition" },
+      -- { "gd",            function() Snacks.picker.lsp_definitions() end,                                              desc = "[G]oto [D]efinition" },
+      -- { "gD",            function() Snacks.picker.lsp_declarations() end,                                             desc = "[G]oto [D]eclaration" },
+      { "grr",            function() Snacks.picker.lsp_references() end,                                               nowait = true,                           desc = "[G]oto [R]eferences" },
+      -- { "gI",            function() Snacks.picker.lsp_implementations() end,                                          desc = "[G]oto [I]mplementation" },
+      -- { "gt",            function() Snacks.picker.lsp_type_definitions() end,                                         desc = "Goto [T]ype Definition" },
       { '<leader>ds',    function() Snacks.picker.lsp_symbols() end,                                                  desc = '[D]ocument [S]ymbols' },
       { '<leader>dS',    function() Snacks.picker.lsp_workspace_symbols() end,                                        desc = '[W]orkspace [S]ymbols' },
 
