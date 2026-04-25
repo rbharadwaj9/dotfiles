@@ -167,7 +167,7 @@ let g:gutentags_enabled = 0
 
 set termguicolors
 
-colorscheme kanagawa
+colorscheme ember
 
 " Autocommands {{{
 augroup file_types

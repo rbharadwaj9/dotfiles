@@ -8,18 +8,13 @@ require('dap-python').setup(python_path)
 table.insert(dap.configurations.python, {
     type = 'python',
     request = 'attach',
-    name = 'Locoma Container Attach',
+    name = 'Attach (all)',
     connect = {
       host = "127.0.0.1",
       port = 5678
     },
+    justMyCode = false,
     mode = "remote",
-    pathMappings = {
-      {
-        localRoot = "/root/workspace",  -- e.g., /home/user/code
-        remoteRoot = "/workspace" -- e.g., /app
-      }
-    }
 })
 
 

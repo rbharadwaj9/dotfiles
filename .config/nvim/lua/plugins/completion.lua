@@ -3,6 +3,7 @@ return {
   {
     "github/copilot.vim",
     event = "BufEnter",
+    enabled = false,
   },
   {
     'saghen/blink.cmp',

@@ -62,6 +62,9 @@ return {
       {'-', "<cmd>Oil<cr>", desc = "Open parent directory", nowait = true, silent = true},
     },
   },
+  {
+    "tpope/vim-rhubarb",
+  }
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`

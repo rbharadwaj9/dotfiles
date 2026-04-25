@@ -1,8 +1,8 @@
 return {
   {
     'rebelot/kanagawa.nvim',
-    lazy = false,
-    priority = 1000,
+    lazy = true,
+    -- priority = 1000,
   },
   {
     'catppuccin/nvim',
@@ -15,11 +15,14 @@ return {
   },
   {
     'nordtheme/vim',
+    name = "nord",
     lazy = true,
   },
   {
     'ember-theme/nvim',
-    lazy = true,
+    name = "ember",
+    lazy = false,
+    priority = 1000,
   }
 }
 
