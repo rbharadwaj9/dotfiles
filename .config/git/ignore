@@ -7,3 +7,5 @@
 # Swap Files
 *.swp
 *.swo
+
+**/.claude/settings.local.json
