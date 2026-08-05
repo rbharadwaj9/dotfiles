@@ -92,6 +92,43 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Disable physical Control keys unless held with Option (practice using Caps Lock instead)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": { "mandatory": ["option"], "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "right_control",
+                                    "modifiers": { "mandatory": ["option"], "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "right_control",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
@@ -105,17 +142,9 @@
                 {
                     "from": { "key_code": "non_us_backslash" },
                     "to": [{ "key_code": "grave_accent_and_tilde" }]
-                },
-                {
-                    "from": { "key_code": "left_control" },
-                    "to": [{ "key_code": "vk_none" }]
-                },
-                {
-                    "from": { "key_code": "right_control" },
-                    "to": [{ "key_code": "vk_none" }]
                 }
             ],
-            "virtual_hid_keyboard": { "keyboard_type_v2": "iso" }
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         },
         {
             "complex_modifications": {
@@ -182,21 +211,49 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Disable physical Control keys unless held with Option (practice using Caps Lock instead)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": { "mandatory": ["option"], "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "right_control",
+                                    "modifiers": { "mandatory": ["option"], "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "right_control",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },
             "name": "ANSI English US",
             "selected": false,
-            "simple_modifications": [
-                {
-                    "from": { "key_code": "left_control" },
-                    "to": [{ "key_code": "vk_none" }]
-                },
-                {
-                    "from": { "key_code": "right_control" },
-                    "to": [{ "key_code": "vk_none" }]
-                }
-            ],
+            "simple_modifications": [],
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]

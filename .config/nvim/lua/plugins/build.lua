@@ -41,6 +41,7 @@ return {
     end,
     keys = {
       { "<leader><leader>", "<cmd>CMakeBuild<CR>", nowait = true, silent = true, desc = "Build" },
+      { "<leader>c", function() Snacks.picker.commands({ pattern = "CMake", layout = { preset = "select" }}) end, desc = "CMake Commands" },
     }
   }
 }
