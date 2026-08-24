@@ -57,15 +57,6 @@ return {
     "nvim-treesitter/playground",
     lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
   },
-  -- Formatting
-  {
-    'mhartington/formatter.nvim',
-    event = "VeryLazy",
-    enabled = false,
-    config = function()
-      require 'formatter_config'
-    end,
-  },
   -- Git stuff
   {
     'tpope/vim-fugitive',

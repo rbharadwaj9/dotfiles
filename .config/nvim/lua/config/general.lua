@@ -1,3 +1,9 @@
+-- Jumplist is persisted via shada across sessions/instances, which pollutes
+-- a fresh session with stale entries; start every instance with a clean one.
+vim.api.nvim_create_autocmd("VimEnter", {
+  command = "clearjumps",
+})
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = function()

@@ -8,5 +8,4 @@ require 'dap_config'
 -- vim.g.loaded_netrwPlugin = 1
 -- Setup nvim-tree
 
--- require("telescope_config")
 require('config.init')

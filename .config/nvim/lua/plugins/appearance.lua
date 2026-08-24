@@ -6,7 +6,7 @@ return {
       options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = { left = '', right = ''},
+        component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = { "snacks_dashboard" },
@@ -110,45 +110,51 @@ return {
       vim.keymap.set('n', "<leader>$", "<cmd>bufferlinegotobuffer -1<cr>")
       end,
   },
-  -- Winbar
+  -- Winbar: LSP breadcrumb (namespace/class/function), toggleable
   {
-    'fgheng/winbar.nvim',
-    event = "BufReadPost",
+    'SmiteshP/nvim-navic',
+    lazy = true,
     opts = {
-      enabled = true,
+      highlight = true,
+      separator = ' › ',
+      depth_limit = 0,
+    },
+    init = function()
+      vim.g.navic_winbar_enabled = true
 
-      show_file_path = true,
-      show_symbols = true,
+      _G.navic_winbar = function()
+        local ok, navic = pcall(require, 'nvim-navic')
+        if not ok or not navic.is_available() then
+          return ''
+        end
+        return navic.get_location()
+      end
 
-      colors = {
-        path = '', -- You can customize colors like #c946fd
-        file_name = '',
-        symbols = '',
-      },
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('navic-winbar', {}),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not (client and client.server_capabilities.documentSymbolProvider) then
+            return
+          end
+          require('nvim-navic').attach(client, args.buf)
+          if vim.g.navic_winbar_enabled then
+            vim.wo[0].winbar = "%{%v:lua.navic_winbar()%}"
+          end
+        end,
+      })
 
-      icons = {
-        file_icon_default = '',
-        seperator = '>',
-        editor_state = '●',
-        lock_icon = '',
-      },
-
-      exclude_filetype = {
-        'help',
-        'startify',
-        'dashboard',
-        'packer',
-        'neogitstatus',
-        'NvimTree',
-        'Trouble',
-        'alpha',
-        'lir',
-        'Outline',
-        'spectre_panel',
-        'toggleterm',
-        'qf',
-      }
-    }
+      vim.keymap.set('n', '<leader>ab', function()
+        vim.g.navic_winbar_enabled = not vim.g.navic_winbar_enabled
+        local navic = require('nvim-navic')
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          if navic.is_available(buf) then
+            vim.wo[win].winbar = vim.g.navic_winbar_enabled and "%{%v:lua.navic_winbar()%}" or ''
+          end
+        end
+      end, { desc = 'Toggle winbar [B]readcrumb' })
+    end,
   },
 }
 

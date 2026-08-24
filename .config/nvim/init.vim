@@ -27,11 +27,6 @@ if has('nvim')
   "Plug 'nvim-telescope/telescope.nvim'
   "Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
-  " Debugging
-  Plug 'mfussenegger/nvim-dap-python' " Python uses debugpy from Mason
-  Plug 'mfussenegger/nvim-dap'
-  Plug 'theHamsta/nvim-dap-virtual-text'
-
 else
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
@@ -57,9 +52,6 @@ endif
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'nlknguyen/papercolor-theme'
 Plug 'rbharadwaj9/vim-vscode-theme'
-
-" Async Makefile make build
-Plug 'tpope/vim-dispatch'
 
 " Easy Align
 Plug 'junegunn/vim-easy-align'
@@ -157,6 +149,7 @@ set showcmd
 set completeopt=menuone,noselect,preview
 set relativenumber
 set nohlsearch
+set jumpoptions=clean,stack,view
 
 " Disable Mouse
 set mouse=
@@ -167,15 +160,15 @@ let g:gutentags_enabled = 0
 
 set termguicolors
 
-colorscheme ember
+colorscheme luna
 
 " Autocommands {{{
 augroup file_types
   autocmd!
-  autocmd FileType cpp,c,typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh,xml,org setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType typescript,css,scss,less,javascript,json,html,puppet,yaml,jinja.html,vim,vue,groovy,bash,zsh,xml,org setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType html nnoremap <leader>r :!open %<cr>
   autocmd FileType gitcommit,markdown,org setlocal spell
-  autocmd FileType cpp,h,c setlocal colorcolumn=90 foldmethod=syntax foldlevel=1
+  autocmd FileType cpp,h,c setlocal colorcolumn=100 foldmethod=syntax foldlevel=1
   autocmd FileType atlas set filetype=tasm
 augroup END
 
@@ -200,9 +193,9 @@ augroup END
 " }}}
 
 
-" Intuitive line scrolling
-nnoremap <silent> j gj
-nnoremap <silent> k gk
+" Intuitive line scrolling (skip gj/gk when a count is given, e.g. 5k)
+nnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
 
 " make Y consistent with C and D.
 nnoremap Y y$

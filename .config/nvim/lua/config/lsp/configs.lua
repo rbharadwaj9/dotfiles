@@ -2,6 +2,16 @@
 -- These are not enabled by Mason and have to be managed completely here.
 -- The LSP installation is managed by Mason though.
 
+-- Give every server blink.cmp's fuller completion capabilities instead of
+-- nvim-lspconfig's bare defaults.
+vim.lsp.config('*', {
+  capabilities = require('blink.cmp').get_lsp_capabilities(),
+})
+
+vim.lsp.config["clangd"] = {
+  cmd = { "clangd", "--background-index", "--background-index-priority=low" },
+}
+
 -- Example custom configuration for lua
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
@@ -49,7 +59,7 @@ vim.lsp.config["jsonls"] = {
   },
 }
 
-vim.lsp.enable({"lua_ls", "yamlls", "jasonls"})
+vim.lsp.enable({"lua_ls", "yamlls", "jsonls"})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

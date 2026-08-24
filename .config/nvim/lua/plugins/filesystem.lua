@@ -6,6 +6,15 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
     opts = {
+      on_attach = function(bufnr)
+        local api = require('nvim-tree.api')
+        api.config.mappings.default_on_attach(bufnr)
+
+        vim.keymap.set('n', 'N', function()
+          vim.wo.number = not vim.wo.number
+          vim.wo.relativenumber = not vim.wo.relativenumber
+        end, { desc = 'Toggle Line Numbers', buffer = bufnr, noremap = true, silent = true, nowait = true })
+      end,
       view = {
         signcolumn = "auto",
       },
@@ -31,10 +40,10 @@ return {
       }
     },
     keys = {
-      {'<leader>to', "<cmd>NvimTreeFocus<cr>", desc = "[T]ree [O]pen", nowait = true, silent = true},
-      {'<leader>tt', "<cmd>NvimTreeToggle<cr>", desc = "[T]ree [T]oggle", nowait = true, silent = true},
-      {'<leader>tc', "<cmd>NvimTreeClose<cr>", desc = "[T]ree [C]lose", nowait = true, silent = true},
-      {'<leader>tf', "<cmd>NvimTreeFindFile<cr>", desc = "[T]ree [F]ind File", nowait = true, silent = true},
+      { '<leader>to', "<cmd>NvimTreeFocus<cr>",    desc = "[T]ree [O]pen",      nowait = true, silent = true },
+      { '<leader>tt', "<cmd>NvimTreeToggle<cr>",   desc = "[T]ree [T]oggle",    nowait = true, silent = true },
+      { '<leader>tc', "<cmd>NvimTreeClose<cr>",    desc = "[T]ree [C]lose",     nowait = true, silent = true },
+      { '<leader>tf', "<cmd>NvimTreeFindFile<cr>", desc = "[T]ree [F]ind File", nowait = true, silent = true },
     },
   },
   {
@@ -59,11 +68,29 @@ return {
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     -- lazy = false,
     keys = {
-      {'-', "<cmd>Oil<cr>", desc = "Open parent directory", nowait = true, silent = true},
+      { '-', "<cmd>Oil<cr>", desc = "Open parent directory", nowait = true, silent = true },
     },
   },
   {
     "tpope/vim-rhubarb",
+  },
+  {
+    "shumphrey/fugitive-gitlab.vim",
+    config = function()
+      vim.g.fugitive_gitlab_domains = {
+        "https://gitlab.scandit.com"
+      }
+    end
+  },
+  {
+    'https://git.sr.ht/~marcc/BufferBrowser',
+    opts = {
+      filetype_filters = { 'gitcommit', 'TelescopePrompt' }
+    },
+    keys = {
+      { "]b", function() require("buffer_browser").next() end, nowait = true, silent = true, desc = "Next [B]uffer[]]" },
+      { "[b", function() require("buffer_browser").prev() end, nowait = true, silent = true, desc = "Previous [B]uffer[]]" },
+    },
   }
 }
 

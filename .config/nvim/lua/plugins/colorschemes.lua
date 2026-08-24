@@ -23,7 +23,13 @@ return {
     name = "ember",
     lazy = false,
     priority = 1000,
-  }
+  },
+  {
+    "wtfox/luna.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
